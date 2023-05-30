@@ -10,7 +10,7 @@ function App() {
 				</a>
 			</div>
 			<h1 className=" text-center text-gray-700 text-xl">
-				Let's Kick Off... gateremark
+				gateremark
 			</h1>
 			<img src={Home} className="logo" alt="Home" />
 		</>
