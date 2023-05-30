@@ -10,5 +10,5 @@ export default {
 			pointc: "url(https://i.postimg.cc/28Wjbm8w/pointer.png), pointer",
 		},
 	},
-	plugins: [],
+	plugins: [require("@tailwindcss/forms")],
 };

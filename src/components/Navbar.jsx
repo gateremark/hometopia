@@ -30,7 +30,7 @@ const Navbar = () => {
 				<div>
 					<ul className="flex space-x-10">
 						<li
-							className={`cursor-pointc py-3 text-base font-semibold text-[#18C7FA] hover:text-[#9dd8eb] ${
+							className={`cursor-pointc py-3 text-lg font-semibold text-[#18C7FA] hover:text-[#9dd8eb] ${
 								pathRoute("/") && "border-b-[3px] text-[#9dd8eb]"
 							} `}
 							onClick={() => navigate("/")}
@@ -38,7 +38,7 @@ const Navbar = () => {
 							Home
 						</li>
 						<li
-							className={`cursor-pointc py-3 text-base font-semibold text-[#18C7FA] hover:text-[#9dd8eb] ${
+							className={`cursor-pointc py-3 text-lg font-semibold text-[#18C7FA] hover:text-[#9dd8eb] ${
 								pathRoute("/offers") && "border-b-[3px] text-[#9dd8eb]"
 							} `}
 							onClick={() => navigate("/offers")}
@@ -46,7 +46,7 @@ const Navbar = () => {
 							Offers
 						</li>
 						<li
-							className={`cursor-pointc py-3 text-base font-semibold text-[#18C7FA] hover:text-[#9dd8eb] ${
+							className={`cursor-pointc py-3 text-lg font-semibold text-[#18C7FA] hover:text-[#9dd8eb] ${
 								pathRoute("/sign-in") && "border-b-[3px] text-[#9dd8eb]"
 							} `}
 							onClick={() => navigate("/sign-in")}
@@ -54,7 +54,7 @@ const Navbar = () => {
 							Sign In
 						</li>
 						<li
-							className={`cursor-pointc py-3 text-base font-semibold text-[#18C7FA] hover:text-[#9dd8eb] ${
+							className={`cursor-pointc py-3 text-lg font-semibold text-[#18C7FA] hover:text-[#9dd8eb] ${
 								pathRoute("/sign-up") && "border-b-[3px] text-[#9dd8eb]"
 							} `}
 							onClick={() => navigate("/sign-up")}
