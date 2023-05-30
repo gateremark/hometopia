@@ -6,6 +6,9 @@ export default {
 		colors: {
 			navcolor: "#3c546e",
 		},
+		cursor: {
+			pointc: "url(src/assets/logo/pointer.png), pointer",
+		},
 	},
 	plugins: [],
 };
