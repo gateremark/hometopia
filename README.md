@@ -6,10 +6,11 @@ Welcome to HomeTopia, a powerful web platform for buying, selling, and renting p
 
 - [ReactJS](https://react.dev/) : A JavaScript library for building user interfaces.
 - [Tailwind CSS](https://tailwindcss.com/) : A utility-first CSS framework for rapidly designing responsive web pages.
+- [Firebase](https://firebase.google.com/) : A comprehensive development platform that provides authentication services and a NoSQL database (Firestore) for user management and data storage.
 - [Leaflet](https://leafletjs.com/) : An open-source JavaScript library for interactive maps.
-- [Firebase](https://firebase.google.com/) : A comprehensive development platform that provides authentication services for user management.
 - [Swiper JS](https://swiperjs.com/) : A modern and mobile-friendly slider library for creating interactive carousels and sliders.
 - [React Toastify](https://fkhadra.github.io/react-toastify/introduction/) : A customizable toast notification library for React applications.
+- [React Icons](https://react-icons.github.io/react-icons/): A collection of popular icons as React components.
 - [Vite](https://vitejs.dev/) : A fast and efficient build tool for modern web development.
 - [Vercel](https://vercel.com/) : A cloud platform for static site deployment.
 
