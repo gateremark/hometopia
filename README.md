@@ -53,7 +53,7 @@ To get started with HomeTopia locally, follow these steps:
 
 ## Deployment
 HomeTopia is deployed using Vercel. Any changes pushed to the main branch will trigger an automatic deployment.
-You can visit the live version of HomeTopia at https://hometopia-gm.vercel.app/.
+You can visit the live version of HomeTopia at https://hometopia.vercel.app/.
 
 ## Contributing
 Contributions are welcome! If you encounter any issues or have suggestions for improvement, please open an issue or submit a pull request.
