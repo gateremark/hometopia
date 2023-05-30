@@ -12,6 +12,7 @@ function App() {
 			<h1 className=" text-center text-gray-700 text-xl">
 				gateremark
 			</h1>
+			<p>Hello Everyone</p>
 			<img src={Home} className="logo" alt="Home" />
 		</>
 	);

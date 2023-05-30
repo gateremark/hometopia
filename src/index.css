@@ -18,6 +18,10 @@ a {
 	cursor: url(assets/logo/pointer.png), pointer;
 }
 
+p {
+	cursor: url(assets/logo/type.png), text;
+}
+
 html {
 	height: 100%;
 	cursor: url(assets/logo/arrow.png), default;
