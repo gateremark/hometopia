@@ -1,6 +1,7 @@
 import Logo from "../assets/logo/logonobg.png";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { FaGithub } from "react-icons/fa";
 
 const Navbar = () => {
 	const { pathname } = useLocation();
@@ -14,7 +15,7 @@ const Navbar = () => {
 	};
 
 	const navigate = useNavigate();
-  console.log(navigate);
+	console.log(navigate);
 	return (
 		<div className="bg-navcolor/50 shadow-md sticky top-0 z-99">
 			<header className="flex justify-between items-center px-3 max-w-6xl mx-auto">
@@ -30,7 +31,7 @@ const Navbar = () => {
 				<div>
 					<ul className="flex space-x-10">
 						<li
-							className={`cursor-pointc py-3 text-sm font-semibold text-[#18C7FA] ${
+							className={`cursor-pointc py-3 text-base font-semibold text-[#18C7FA] ${
 								pathRoute("/") && "border-b-[3px] text-[#9dd8eb]"
 							} `}
 							onClick={() => navigate("/")}
@@ -38,7 +39,7 @@ const Navbar = () => {
 							Home
 						</li>
 						<li
-							className={`cursor-pointc py-3 text-sm font-semibold text-[#18C7FA] ${
+							className={`cursor-pointc py-3 text-base font-semibold text-[#18C7FA] ${
 								pathRoute("/offers") && "border-b-[3px] text-[#9dd8eb]"
 							} `}
 							onClick={() => navigate("/offers")}
@@ -46,7 +47,7 @@ const Navbar = () => {
 							Offers
 						</li>
 						<li
-							className={`cursor-pointc py-3 text-sm font-semibold text-[#18C7FA] ${
+							className={`cursor-pointc py-3 text-base font-semibold text-[#18C7FA] ${
 								pathRoute("/sign-in") && "border-b-[3px] text-[#9dd8eb]"
 							} `}
 							onClick={() => navigate("/sign-in")}
@@ -54,12 +55,17 @@ const Navbar = () => {
 							Sign In
 						</li>
 						<li
-							className={`cursor-pointc py-3 text-sm font-semibold text-[#18C7FA] ${
+							className={`cursor-pointc py-3 text-base font-semibold text-[#18C7FA] ${
 								pathRoute("/sign-up") && "border-b-[3px] text-[#9dd8eb]"
 							} `}
 							onClick={() => navigate("/sign-up")}
 						>
 							Sign Up
+						</li>
+						<li className="cursor-pointc py-3 text-xl font-semibold text-[#334155] items-center">
+							<a href="https://github.com/gateremark/hometopia" target="_blank">
+								<FaGithub />
+							</a>
 						</li>
 					</ul>
 				</div>
