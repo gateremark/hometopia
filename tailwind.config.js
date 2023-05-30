@@ -7,7 +7,7 @@ export default {
 			navcolor: "#3c546e",
 		},
 		cursor: {
-			pointc: "url(src/assets/logo/pointer.png), pointer",
+			pointc: "url(https://i.postimg.cc/28Wjbm8w/pointer.png), pointer",
 		},
 	},
 	plugins: [],
