@@ -61,8 +61,12 @@ const Navbar = () => {
 						>
 							Sign Up
 						</li>
-						<li className="cursor-pointc py-3 text-xl font-semibold text-[#334155] items-center hover:text-[#9dd8eb] focus:outline-none focus:ring-offset-2">
-							<a href="https://github.com/gateremark/hometopia" target="_blank">
+						<li className="py-4">
+							<a
+								href="https://github.com/gateremark/hometopia"
+								className="cursor-pointc text-xl font-semibold text-[#334155] items-center hover:text-[#9dd8eb] transition duration-500 ease-in-out focus:outline-none focus:ring-offset-2"
+								target="_blank"
+							>
 								<FaGithub />
 							</a>
 						</li>
