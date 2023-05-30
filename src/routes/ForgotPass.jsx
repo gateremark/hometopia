@@ -35,7 +35,7 @@ const ForgotPass = () => {
 									className="text-[#172431] font-semibold transition duration-500 ease-in-out hover:text-[#3c546e]"
 								>
 									{" "}
-									Create Account
+									Register
 								</Link>
 							</p>
 							<p>
