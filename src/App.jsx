@@ -10,7 +10,7 @@ function App() {
 					<img src={Logo} className="logo" alt="Main logo" />
 				</a>
 			</div>
-			{/* <img src={Home} className="logo" alt="Home" /> */}
+			<img src={Home} className="logo" alt="Home" />
       <h1 className=' text-center'>Hello Here!</h1>
 		</>
 	);
