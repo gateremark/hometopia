@@ -1,8 +1,13 @@
+import SigninImage from '../assets/logo/keyamico.svg'
+
 const Signin = () => {
   return (
-    <div>
-      Sign In
-    </div>
+    <section>
+      <h1 className='text-4xl text-center mt-6 font-bold'>Sign In</h1>
+      <a href="">
+        Hello
+      </a>
+    </section>
   )
 }
 

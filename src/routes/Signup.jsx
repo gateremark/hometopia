@@ -1,9 +1,11 @@
-const Signup = () => {
-  return (
-    <div>
-      Sign Up
-    </div>
-  )
-}
+import SignupImage from "../assets/logo/keypana.svg";
 
-export default Signup
+const Signup = () => {
+	return (
+		<div>
+      
+    </div>
+	);
+};
+
+export default Signup;
