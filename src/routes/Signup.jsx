@@ -70,6 +70,8 @@ const Signup = () => {
 			const errorMessage = error.message;
 			// console.log(errorMessage);
 			// console.log(typeof errorMessage);
+
+			//store the error returned by firebase as an array by splitting the string
 			const errorMessageArray = errorMessage.split(" ");
 			{
 				errorMessageArray.includes("(auth/invalid-email).") &&
