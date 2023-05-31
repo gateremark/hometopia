@@ -68,8 +68,8 @@ const Signup = () => {
 			toast.success(`Welcome ${name}`);
 		} catch (error) {
 			const errorMessage = error.message;
-			console.log(errorMessage);
-			console.log(typeof errorMessage);
+			// console.log(errorMessage);
+			// console.log(typeof errorMessage);
 			const errorMessageArray = errorMessage.split(" ");
 			{
 				errorMessageArray.includes("(auth/invalid-email).") &&
