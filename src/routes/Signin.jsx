@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useReducer, useState } from "react";
 import SigninImage from "../assets/logo/keyamico.svg";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import OAuth from "../components/OAuth";
+import { signInWithEmailAndPassword, getAuth } from "firebase/auth";
+import { toast } from "react-toastify";
 
 const Signin = () => {
 	const [showPassword, setShowPassword] = useState(false);
@@ -11,11 +13,56 @@ const Signin = () => {
 		password: "",
 	});
 	const { email, password } = formData;
+	const navigate = useNavigate()
 	const onChange = (e) => {
 		setFormData((prevState) => ({
 			...prevState,
 			[e.target.id]: e.target.value,
 		}));
+	};
+	const onSubmit = async (e) => {
+		e.preventDefault();
+		try {
+			const auth = getAuth();
+			const userCredential = await signInWithEmailAndPassword(
+				auth,
+				email,
+				password,
+			);
+
+			if (userCredential.user) {
+				const user = userCredential.user;
+				console.log(user);
+				navigate("/");
+				// Show a success toast notification
+				toast.success(`Welcome ${user.displayName} 🥳`);
+			}
+
+			
+		} catch (error) {
+			const errorMessage = error.message;
+			// console.log(errorMessage);
+			// console.log(typeof errorMessage);
+			// toast.error("Wrong user Credentials");
+
+			const errorMessageArray = errorMessage.split(" ");
+			{
+				errorMessageArray.includes("(auth/invalid-email).") &&
+					toast.error("Invalid Email 😢");
+			}
+			{
+				errorMessageArray.includes("(auth/missing-password).") &&
+					toast.error("Missing Password 😢");
+			}
+			{
+				errorMessageArray.includes("(auth/user-not-found).") &&
+					toast.error("User Not Found 😢");
+			}
+			{
+				errorMessageArray.includes("(auth/wrong-password).") &&
+					toast.error("Wrong Password 😢");
+			}
+		}
 	};
 	return (
 		<section>
@@ -27,7 +74,7 @@ const Signin = () => {
 					<img src={SigninImage} alt="Signin Image" className="w-full" />
 				</div>
 				<div className="w-full md:w-[67%] lg:w-[40%] lg:ml-20">
-					<form action="">
+					<form action="" onSubmit={onSubmit}>
 						<input
 							type="email"
 							id="email"

@@ -65,7 +65,7 @@ const Signup = () => {
 			navigate("/");
 
 			// Show a success toast notification
-			toast.success(`Welcome ${name}`);
+			toast.success(`Welcome ${name} 🥳`);
 		} catch (error) {
 			const errorMessage = error.message;
 			// console.log(errorMessage);
@@ -75,20 +75,20 @@ const Signup = () => {
 			const errorMessageArray = errorMessage.split(" ");
 			{
 				errorMessageArray.includes("(auth/invalid-email).") &&
-					toast.error("Invalid Email");
+					toast.error("Invalid Email 😢");
 			}
 			{
 				errorMessageArray.includes("(auth/missing-password).") &&
-					toast.error("Missing Password");
+					toast.error("Missing Password 😢");
 			}
 			{
 				errorMessageArray.includes("(auth/weak-password).") &&
-					toast.error("Weak Password");
+					toast.error("Weak Password 😢");
 			}
 
 			{
 				errorMessageArray.includes("(auth/email-already-in-use).") &&
-					toast.error("Email Already in Use");
+					toast.error("Email Already in Use 😢");
 			}
 
 			// Show an error toast notification
