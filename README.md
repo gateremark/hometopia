@@ -43,7 +43,7 @@ To get started with HomeTopia locally, follow these steps:
    
 3. Configure Firebase authentication:
    Create a Firebase project and obtain the necessary credentials.
-   Update the Firebase configuration in `src/firebase.js` with your own credentials.
+   Update the Firebase configuration in `src/firebase.jsx` with your own credentials.
    
 4. Start the development server:
 
@@ -51,7 +51,7 @@ To get started with HomeTopia locally, follow these steps:
    pnpm run dev
    ```
 
-5. Open your browser and visit specified local host port to view the app eg. `http://localhost:3000`.
+5. Open your browser and visit specified local host port to view the app eg. `http://localhost:5173`.
 
 
 ## Deployment
