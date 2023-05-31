@@ -32,8 +32,6 @@ const OAuth = () => {
 			// Show a success toast notification
 			toast.success(`Welcome ${user.displayName} 🥳`);
 		} catch (error) {
-			const errorMessage = error.message;
-			console.log(errorMessage);
 			toast.error("Could not authorize with Google 😢");
 		}
 	};
