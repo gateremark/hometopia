@@ -21,7 +21,7 @@ Welcome to HomeTopia, a powerful web platform for buying, selling, and renting p
 - Secure authentication and user management using Firebase.
 - Offers: Submit offers for properties on offer.
 - Direct contacting the property owner on the platform.
-- Sell or rent property by creating a listing.
+- Sell or rent property by creating a listing on the platform.
 - Seamless deployment and hosting with Vercel.
 
 ## Getting Started
