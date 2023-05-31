@@ -17,9 +17,11 @@ Welcome to HomeTopia, a powerful web platform for buying, selling, and renting p
 ## Features
 
 - Comprehensive property listings with detailed descriptions and images.
-- Interactive maps powered by Leaflet to explore neighborhoods.
+- Interactive maps powered by Leaflet to explore property location(s).
 - Secure authentication and user management using Firebase.
-- Offers: Submit offers for properties and track their status.
+- Offers: Submit offers for properties on offer.
+- Direct contacting the property owner on the platform.
+- Sell or rent property by creating a listing on the platform.
 - Seamless deployment and hosting with Vercel.
 
 ## Getting Started
