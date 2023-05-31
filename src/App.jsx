@@ -1,13 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import {
-	Home,
-	Profile,
-	Offers,
-	ForgotPass,
-	Signin,
-	Signup,
-} from "./Routes";
+import { Home, Profile, Offers, ForgotPass, Signin, Signup } from "./Routes";
 import Navbar from "./components/Navbar";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
 	return (
@@ -23,6 +18,18 @@ function App() {
 					<Route path="/sign-up" element={<Signup />} />
 				</Routes>
 			</Router>
+			<ToastContainer
+				position="top-right"
+				autoClose={3000}
+				hideProgressBar={false}
+				newestOnTop={false}
+				closeOnClick
+				rtl={false}
+				pauseOnFocusLoss
+				draggable
+				pauseOnHover
+				theme="dark"
+			/>
 		</>
 	);
 }

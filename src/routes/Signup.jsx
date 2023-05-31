@@ -3,20 +3,59 @@ import SignupImage from "../assets/logo/keypana.svg";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import OAuth from "../components/OAuth";
+import {
+	getAuth,
+	createUserWithEmailAndPassword,
+	updateProfile,
+} from "firebase/auth";
+import { db } from "../firebase";
+import { doc, serverTimestamp, setDoc } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
+import {toast} from "react-toastify"
 
 const Signup = () => {
 	const [showPassword, setShowPassword] = useState(false);
 	const [formData, setFormData] = useState({
-		name:"",
+		name: "",
 		email: "",
 		password: "",
 	});
 	const { name, email, password } = formData;
+	const navigate = useNavigate();
 	const onChange = (e) => {
 		setFormData((prevState) => ({
 			...prevState,
 			[e.target.id]: e.target.value,
 		}));
+	};
+
+	const onSubmit = async (e) => {
+		e.preventDefault();
+
+		try {
+			const auth = getAuth();
+			const userCredential = await createUserWithEmailAndPassword(
+				auth,
+				email,
+				password,
+			);
+
+			updateProfile(auth.currentUser, {
+				displayName: name,
+			});
+			const user = userCredential.user;
+			const formDataCopy = { ...formData };
+			delete formDataCopy.password;
+			formDataCopy.timestamp = serverTimestamp();
+
+			await setDoc(doc(db, "users", user.uid), formDataCopy);
+			navigate("/");
+			toast.success(`Welcome ${name}`)
+		} catch (error) {
+			const errorMessage = error.message;
+			// console.log(errorMessage)
+			toast.error(errorMessage)
+		}
 	};
 	return (
 		<section>
@@ -28,7 +67,7 @@ const Signup = () => {
 					<img src={SignupImage} alt="Signin Image" className="w-full" />
 				</div>
 				<div className="w-full md:w-[67%] lg:w-[40%] lg:ml-20">
-					<form action="">
+					<form action="" onSubmit={onSubmit}>
 						<input
 							type="text"
 							id="name"
