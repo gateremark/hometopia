@@ -2,12 +2,41 @@ import { useState } from "react";
 import PassImage from "../assets/logo/passwordamico.svg";
 import { Link } from "react-router-dom";
 import OAuth from "../components/OAuth";
+import { toast } from "react-toastify";
+import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 
 const ForgotPass = () => {
 	const [email, setEmail] = useState("");
 	const onChange = (e) => {
 		setEmail(e.target.value);
 	};
+
+	const onSubmit = async (e) => {
+		e.preventDefault()
+		try {
+			const auth = getAuth()
+			await sendPasswordResetEmail(auth, email)
+			toast.success("Reset Password Email was Sent")
+		} catch (error) {
+			const errorMessage = error.message;
+			console.log(errorMessage);
+			// toast.error("Could not send Reset Password");
+
+			const errorMessageArray = errorMessage.split(" ");
+			{
+				errorMessageArray.includes("(auth/invalid-email).") &&
+					toast.error("Invalid Email 😢");
+			}
+			{
+				errorMessageArray.includes("(auth/missing-email).") &&
+					toast.error("Missing Email 😢");
+			}
+			{
+				errorMessageArray.includes("(auth/user-not-found).") &&
+					toast.error("User Not Found 😢");
+			}
+		}
+	}
 	return (
 		<section>
 			<h1 className="text-4xl text-center mt-6 font-bold text-[#202e3d]">
@@ -18,7 +47,7 @@ const ForgotPass = () => {
 					<img src={PassImage} alt="Signin Image" className="w-full" />
 				</div>
 				<div className="w-full md:w-[67%] lg:w-[40%] lg:ml-20">
-					<form action="">
+					<form action="" onSubmit={onSubmit}>
 						<input
 							type="email"
 							id="email"
