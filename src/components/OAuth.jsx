@@ -6,7 +6,7 @@ import { doc, getDoc, serverTimestamp, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 
 const OAuth = () => {
-	const navigate = useNavigate()
+	const navigate = useNavigate();
 	const onGoogleClick = async () => {
 		try {
 			const auth = getAuth();
@@ -27,7 +27,7 @@ const OAuth = () => {
 				});
 			}
 
-			navigate("/")
+			navigate("/");
 
 			// Show a success toast notification
 			toast.success(`Welcome ${user.displayName} 🥳`);

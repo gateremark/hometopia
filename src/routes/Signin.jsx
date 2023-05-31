@@ -13,7 +13,7 @@ const Signin = () => {
 		password: "",
 	});
 	const { email, password } = formData;
-	const navigate = useNavigate()
+	const navigate = useNavigate();
 	const onChange = (e) => {
 		setFormData((prevState) => ({
 			...prevState,
@@ -34,11 +34,10 @@ const Signin = () => {
 				const user = userCredential.user;
 				console.log(user);
 				navigate("/");
+
 				// Show a success toast notification
 				toast.success(`Welcome ${user.displayName} 🥳`);
 			}
-
-			
 		} catch (error) {
 			const errorMessage = error.message;
 			// console.log(errorMessage);
