@@ -12,14 +12,14 @@ const ForgotPass = () => {
 	};
 
 	const onSubmit = async (e) => {
-		e.preventDefault()
+		e.preventDefault();
 		try {
-			const auth = getAuth()
-			await sendPasswordResetEmail(auth, email)
-			toast.success("Reset Password Email was Sent")
+			const auth = getAuth();
+			await sendPasswordResetEmail(auth, email);
+			toast.success("Reset Password Email was Sent");
 		} catch (error) {
 			const errorMessage = error.message;
-			console.log(errorMessage);
+			// console.log(errorMessage);
 			// toast.error("Could not send Reset Password");
 
 			const errorMessageArray = errorMessage.split(" ");
@@ -36,7 +36,7 @@ const ForgotPass = () => {
 					toast.error("User Not Found 😢");
 			}
 		}
-	}
+	};
 	return (
 		<section>
 			<h1 className="text-4xl text-center mt-6 font-bold text-[#202e3d]">
