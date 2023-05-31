@@ -14,6 +14,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const Signup = () => {
+	// State hooks for managing the visibility of the password and the form data
 	const [showPassword, setShowPassword] = useState(false);
 	const [formData, setFormData] = useState({
 		name: "",
@@ -21,7 +22,11 @@ const Signup = () => {
 		password: "",
 	});
 	const { name, email, password } = formData;
+
+	// Hooks for navigating to a different route
 	const navigate = useNavigate();
+
+	// Event handler for input changes
 	const onChange = (e) => {
 		setFormData((prevState) => ({
 			...prevState,
@@ -29,32 +34,63 @@ const Signup = () => {
 		}));
 	};
 
+	// Event handler for form submission
 	const onSubmit = async (e) => {
 		e.preventDefault();
 
 		try {
+			// Firebase authentication instance
 			const auth = getAuth();
+			// Create a new user with email and password
+
 			const userCredential = await createUserWithEmailAndPassword(
 				auth,
 				email,
 				password,
 			);
 
+			// Update the user's profile display name
 			updateProfile(auth.currentUser, {
 				displayName: name,
 			});
+
+			// Get the user from the userCredential object
 			const user = userCredential.user;
 			const formDataCopy = { ...formData };
 			delete formDataCopy.password;
 			formDataCopy.timestamp = serverTimestamp();
 
+			// Save the user data to Firestore database
 			await setDoc(doc(db, "users", user.uid), formDataCopy);
 			navigate("/");
+
+			// Show a success toast notification
 			toast.success(`Welcome ${name}`);
 		} catch (error) {
 			const errorMessage = error.message;
-			// console.log(errorMessage)
-			toast.error(errorMessage);
+			console.log(errorMessage);
+			console.log(typeof errorMessage);
+			const errorMessageArray = errorMessage.split(" ");
+			{
+				errorMessageArray.includes("(auth/invalid-email).") &&
+					toast.error("Invalid Email");
+			}
+			{
+				errorMessageArray.includes("(auth/missing-password).") &&
+					toast.error("Missing Password");
+			}
+			{
+				errorMessageArray.includes("(auth/weak-password).") &&
+					toast.error("Weak Password");
+			}
+
+			{
+				errorMessageArray.includes("(auth/email-already-in-use).") &&
+					toast.error("Email Already in Use");
+			}
+
+			// Show an error toast notification
+			// toast.error(errorMessage);
 		}
 	};
 	return (
