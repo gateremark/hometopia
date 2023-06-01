@@ -19,16 +19,15 @@ const OAuth = () => {
 			const docRef = doc(db, "users", user.uid);
 			const docSnap = await getDoc(docRef);
 
-			{
-				if (!docSnap.exists()) {
-					await setDoc(docRef, {
-						name: user.displayName,
-						email: user.email,
-						timestamp: serverTimestamp(),
-					});
-				}
-				navigate("/");
+			if (!docSnap.exists()) {
+				await setDoc(docRef, {
+					name: user.displayName,
+					email: user.email,
+					timestamp: serverTimestamp(),
+				});
 			}
+			navigate("/");
+
 			// Show a success toast notification
 			toast.success(`Welcome ${user.displayName}! 🥳`);
 		} catch (error) {

@@ -5,6 +5,8 @@ import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase";
+import { FaHome } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
 	const auth = getAuth();
@@ -105,6 +107,15 @@ const Profile = () => {
 							</p>
 						</div>
 					</form>
+					<button
+						type="submit"
+						className="w-full mt-4 bg-[#10192D] text-[#fff] font-medium uppercase shadow-lg hover:shadow-xl p-4 rounded cursor-pointc text-2xl hover:bg-[#192d41] transition duration-200 ease-in-out active:bg-[#10192D]"
+						title="Sell Or Rent your Home"
+					>
+						<Link to="/add-listing" className="flex justify-center items-center gap-4">
+							<FaHome className="text-4xl" /> Sell Or Rent
+						</Link>
+					</button>
 				</div>
 			</section>
 		</>
