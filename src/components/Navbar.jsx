@@ -2,8 +2,11 @@ import Logo from "../assets/logo/logonobg.png";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { FaGithub } from "react-icons/fa";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
+	const [pageState, setPageState] = useState("Sign In");
 	const { pathname } = useLocation();
 	// console.log(pathname)
 	const pathRoute = (route) => {
@@ -15,6 +18,16 @@ const Navbar = () => {
 	};
 
 	const navigate = useNavigate();
+	const auth = getAuth();
+	useEffect(() => {
+		onAuthStateChanged(auth, (user) => {
+			if (user) {
+				setPageState("Profile");
+			} else {
+				setPageState("Sign In");
+			}
+		});
+	}, [auth]);
 	return (
 		<div className="bg-navcolor/50 shadow-md sticky top-0 z-99">
 			<header className="flex justify-between items-center px-3 max-w-6xl mx-auto">
@@ -47,20 +60,23 @@ const Navbar = () => {
 						</li>
 						<li
 							className={`cursor-pointc py-3 text-lg font-semibold text-[#18C7FA] hover:text-[#9dd8eb] ${
-								pathRoute("/sign-in") && "border-b-[3px] text-[#9dd8eb]"
+								(pathRoute("/sign-in") || pathRoute("/profile")) &&
+								"border-b-[3px] text-[#9dd8eb]"
 							} `}
-							onClick={() => navigate("/sign-in")}
+							onClick={() => navigate("/profile")}
 						>
-							Sign In
+							{pageState}
 						</li>
-						<li
-							className={`cursor-pointc py-3 text-lg font-semibold text-[#18C7FA] hover:text-[#9dd8eb] ${
-								pathRoute("/sign-up") && "border-b-[3px] text-[#9dd8eb]"
-							} `}
-							onClick={() => navigate("/sign-up")}
-						>
-							Sign Up
-						</li>
+						{pageState !== "Profile" && (
+							<li
+								className={`cursor-pointc py-3 text-lg font-semibold text-[#18C7FA] hover:text-[#9dd8eb] ${
+									pathRoute("/sign-up") && "border-b-[3px] text-[#9dd8eb]"
+								} `}
+								onClick={() => navigate("/sign-up")}
+							>
+								Sign Up
+							</li>
+						)}
 						<li className="py-4">
 							<a
 								href="https://github.com/gateremark/hometopia"

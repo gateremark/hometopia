@@ -16,12 +16,17 @@ const Profile = () => {
 	const onLogOut = () => {
 		auth.signOut();
 		navigate("/");
-		toast.info(`See you Again, ${name}!`)
+		toast.info(`See you Again, ${name}!`);
 	};
 	return (
 		<>
 			<section>
-				<img src={Profilepic} className="h-24 mt-4 m-auto" alt="" />
+				<img
+					src={Profilepic}
+					className="h-24 mt-4 m-auto"
+					alt=""
+					style={{ transform: "rotateY(180deg)" }}
+				/>
 				<h1 className="text-4xl mt-2 text-center font-bold text-[#202e3d]">
 					My Profile
 				</h1>
