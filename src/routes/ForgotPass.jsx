@@ -61,7 +61,7 @@ const ForgotPass = () => {
 								Don't Have an Account?
 								<Link
 									to="/sign-up"
-									className="text-[#172431] font-semibold transition duration-500 ease-in-out hover:text-[#3c546e]"
+									className="text-[#172431] text-xl font-semibold transition duration-500 ease-in-out hover:text-[#3c546e]"
 								>
 									{" "}
 									Register
@@ -70,7 +70,7 @@ const ForgotPass = () => {
 							<p>
 								<Link
 									to="/sign-in"
-									className="text-[#7e1e1e] font-semibold transition duration-500 ease-in-out hover:text-[#af4646]"
+									className="text-[#7e1e1e] text-xl font-semibold transition duration-500 ease-in-out hover:text-[#af4646]"
 								>
 									Back to Sign In
 								</Link>

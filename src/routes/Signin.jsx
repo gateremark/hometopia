@@ -103,12 +103,12 @@ const Signin = () => {
 								/>
 							)}
 						</div>
-						<div className="flex justify-between whitespace-nowrap text-sm sm:text-lg">
-							<p className="text-[#172431] font-light mb-6">
+						<div className="flex justify-between whitespace-nowrap text-sm sm:text-lg mb-6">
+							<p className="text-[#172431] font-light">
 								Don't Have an Account?
 								<Link
 									to="/sign-up"
-									className="text-[#172431] font-semibold transition duration-500 ease-in-out hover:text-[#3c546e]"
+									className="text-[#172431] text-xl font-semibold transition duration-500 ease-in-out hover:text-[#3c546e]"
 								>
 									{" "}
 									Register
@@ -117,7 +117,7 @@ const Signin = () => {
 							<p>
 								<Link
 									to="/forgot-password"
-									className="text-[#7e1e1e] font-semibold transition duration-500 ease-in-out hover:text-[#af4646]"
+									className="text-[#7e1e1e] text-xl font-semibold transition duration-500 ease-in-out hover:text-[#af4646]"
 								>
 									Forgot Password?
 								</Link>

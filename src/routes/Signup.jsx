@@ -148,7 +148,7 @@ const Signup = () => {
 								Have an Account?
 								<Link
 									to="/sign-in"
-									className="text-[#172431] font-semibold transition duration-500 ease-in-out hover:text-[#3c546e]"
+									className="text-[#172431] text-xl font-semibold transition duration-500 ease-in-out hover:text-[#3c546e]"
 								>
 									{" "}
 									Sign In
