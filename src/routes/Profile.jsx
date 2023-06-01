@@ -1,12 +1,15 @@
 import { useState } from "react";
 import Profilepic from "../assets/logo/profile.png";
-import { getAuth } from "firebase/auth";
+import { getAuth, updateProfile } from "firebase/auth";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
+import { doc, updateDoc } from "firebase/firestore";
+import { db } from "../firebase";
 
 const Profile = () => {
 	const auth = getAuth();
 	const navigate = useNavigate();
+	const [changeName, setChangeName] = useState(false);
 	const [formData, setFormData] = useState({
 		name: auth.currentUser.displayName,
 		email: auth.currentUser.email,
@@ -17,6 +20,33 @@ const Profile = () => {
 		auth.signOut();
 		navigate("/");
 		toast.info(`See you Again, ${name}!`);
+	};
+
+	const onChange = (e) => {
+		setFormData((prevState) => ({
+			...prevState,
+			[e.target.id]: e.target.value,
+		}));
+	};
+	const onSubmit = async () => {
+		try {
+			if (auth.currentUser.displayName !== name) {
+				//update display name in firebase auth
+				await updateProfile(auth.currentUser, {
+					displayName: name,
+				});
+
+				//update name in firestore
+				const docRef = doc(db, "users", auth.currentUser.uid);
+
+				await updateDoc(docRef, {
+					name,
+				});
+			}
+			toast.success("Profile Name Updated!");
+		} catch (error) {
+			toast.error("Could not update the Profile Name!");
+		}
 	};
 	return (
 		<>
@@ -36,8 +66,12 @@ const Profile = () => {
 							type="text"
 							id="name"
 							value={name}
-							disabled
-							className="w-full bg-transparent py-2 text-3xl text-[#3c546e] text-center border-[#3c546e] transition ease-in-out cursor-pointa"
+							disabled={!changeName}
+							onChange={onChange}
+							className={`w-full bg-transparent py-2 text-3xl text-[#3c546e] text-center border-[#3c546e] transition ease-in-out rounded cursor-pointa ${
+								changeName &&
+								"bg-[#16b0df] focus:bg-[#3c546e] focus:text-[#ffffff]"
+							}`}
 						/>
 
 						<input
@@ -45,15 +79,21 @@ const Profile = () => {
 							id="email"
 							value={email}
 							disabled
-							className="w-full bg-transparent py-2 text-3xl text-[#3c546e] text-center border-[#3c546e] transition ease-in-out cursor-pointa"
+							className="w-full bg-transparent py-2 text-3xl text-[#3c546e] text-center border-[#3c546e] transition ease-in-out rounded cursor-pointa"
 						/>
 
 						<div className="w-full flex justify-between whitespace-nowrap text-sm sm:text-lg mt-6 mb-6">
 							<p className="text-[#172431] font-light items-center">
 								Want to change your name?
-								<span className="text-[#172431] text-xl font-semibold transition duration-500 ease-in-out hover:text-[#3c546e] cursor-pointc">
+								<span
+									onClick={() => {
+										changeName && onSubmit();
+										setChangeName((prevState) => !prevState);
+									}}
+									className="text-[#172431] text-xl font-semibold transition duration-500 ease-in-out hover:text-[#3c546e] cursor-pointc"
+								>
 									{" "}
-									Edit
+									{changeName ? "Apply Change" : "Edit"}
 								</span>
 							</p>
 							<p

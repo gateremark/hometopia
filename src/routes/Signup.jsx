@@ -65,7 +65,7 @@ const Signup = () => {
 			navigate("/");
 
 			// Show a success toast notification
-			toast.success(`Welcome ${name} 🥳`);
+			toast.success(`Welcome ${name}! 🥳`);
 		} catch (error) {
 			const errorMessage = error.message;
 			// console.log(errorMessage);
