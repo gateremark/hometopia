@@ -68,9 +68,10 @@ const Profile = () => {
 							value={name}
 							disabled={!changeName}
 							onChange={onChange}
-							className={`w-full bg-transparent py-2 text-3xl text-[#3c546e] text-center border-[#3c546e] transition ease-in-out rounded cursor-pointa ${
-								changeName &&
-								"bg-[#16b0df] focus:bg-[#3c546e] focus:text-[#ffffff]"
+							className={`w-full py-2 text-3xl text-[#3c546e] text-center border-[#3c546e] transition ease-in-out rounded cursor-pointa ${
+								changeName
+									? "bg-[#16b0df] focus:bg-[#3c546e] focus:text-[#ffffff]"
+									: " bg-transparent"
 							}`}
 						/>
 
