@@ -2,6 +2,7 @@ import { useState } from "react";
 import Profilepic from "../assets/logo/profile.png";
 import { getAuth } from "firebase/auth";
 import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
 
 const Profile = () => {
 	const auth = getAuth();
@@ -15,6 +16,7 @@ const Profile = () => {
 	const onLogOut = () => {
 		auth.signOut();
 		navigate("/");
+		toast.info(`See you Again, ${name}!`)
 	};
 	return (
 		<>

@@ -1,5 +1,6 @@
 import { Outlet, Navigate } from "react-router-dom";
 import { useAuthStatus } from "../hooks/useAuthStatus";
+import { toast } from "react-toastify";
 
 const PrivateRoute = () => {
 	const { loggedIn, checkingStatus } = useAuthStatus();
