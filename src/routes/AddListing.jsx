@@ -48,7 +48,7 @@ const AddListing = () => {
 						className={`px-7 py-2 font-medium text-base uppercase shadow-lg rounded hover:shadow-xl focus:shadow-xl active:shadow-xl transition duration-150 ease-in-out w-full cursor-pointc ${
 							type === "rent"
 								? "bg-[#fff] text-[#172431]"
-								: "bg-[#394c75] text-[#fff]"
+								: "bg-[#395672] text-[#fff]"
 						}`}
 					>
 						Sell
@@ -61,7 +61,7 @@ const AddListing = () => {
 						className={`px-7 py-2 font-medium text-base uppercase shadow-lg rounded hover:shadow-xl focus:shadow-xl active:shadow-xl transition duration-150 ease-in-out w-full cursor-pointc ${
 							type !== "rent"
 								? "bg-[#fff] text-[#172431]"
-								: "bg-[#394c75] text-[#fff]"
+								: "bg-[#395672] text-[#fff]"
 						}`}
 					>
 						Rent
@@ -129,7 +129,7 @@ const AddListing = () => {
 						value={true}
 						onClick={onChange}
 						className={`px-7 py-2 font-medium text-base uppercase shadow-lg rounded hover:shadow-xl focus:shadow-xl active:shadow-xl transition duration-150 ease-in-out w-full cursor-pointc ${
-							!parking ? "bg-[#fff] text-[#172431]" : "bg-[#394c75] text-[#fff]"
+							!parking ? "bg-[#fff] text-[#172431]" : "bg-[#395672] text-[#fff]"
 						}`}
 					>
 						Yes
@@ -140,7 +140,7 @@ const AddListing = () => {
 						value={true}
 						onClick={onChange}
 						className={`px-7 py-2 font-medium text-base uppercase shadow-lg rounded hover:shadow-xl focus:shadow-xl active:shadow-xl transition duration-150 ease-in-out w-full cursor-pointc ${
-							parking ? "bg-[#fff] text-[#172431]" : "bg-[#394c75] text-[#fff]"
+							parking ? "bg-[#fff] text-[#172431]" : "bg-[#395672] text-[#fff]"
 						}`}
 					>
 						No
@@ -156,7 +156,7 @@ const AddListing = () => {
 						value={true}
 						onClick={onChange}
 						className={`px-7 py-2 font-medium text-base uppercase shadow-lg rounded hover:shadow-xl focus:shadow-xl active:shadow-xl transition duration-150 ease-in-out w-full cursor-pointc ${
-							!furnish ? "bg-[#fff] text-[#172431]" : "bg-[#394c75] text-[#fff]"
+							!furnish ? "bg-[#fff] text-[#172431]" : "bg-[#395672] text-[#fff]"
 						}`}
 					>
 						Yes
@@ -167,7 +167,7 @@ const AddListing = () => {
 						value={true}
 						onClick={onChange}
 						className={`px-7 py-2 font-medium text-base uppercase shadow-lg rounded hover:shadow-xl focus:shadow-xl active:shadow-xl transition duration-150 ease-in-out w-full cursor-pointc ${
-							furnish ? "bg-[#fff] text-[#172431]" : "bg-[#394c75] text-[#fff]"
+							furnish ? "bg-[#fff] text-[#172431]" : "bg-[#395672] text-[#fff]"
 						}`}
 					>
 						No
@@ -207,7 +207,7 @@ const AddListing = () => {
 						value={true}
 						onClick={onChange}
 						className={`px-7 py-2 font-medium text-base uppercase shadow-lg rounded hover:shadow-xl focus:shadow-xl active:shadow-xl transition duration-150 ease-in-out w-full cursor-pointc ${
-							!offer ? "bg-[#fff] text-[#172431]" : "bg-[#394c75] text-[#fff]"
+							!offer ? "bg-[#fff] text-[#172431]" : "bg-[#395672] text-[#fff]"
 						}`}
 					>
 						Yes
@@ -218,7 +218,7 @@ const AddListing = () => {
 						value={true}
 						onClick={onChange}
 						className={`px-7 py-2 font-medium text-base uppercase shadow-lg rounded hover:shadow-xl focus:shadow-xl active:shadow-xl transition duration-150 ease-in-out w-full cursor-pointc ${
-							offer ? "bg-[#fff] text-[#172431]" : "bg-[#394c75] text-[#fff]"
+							offer ? "bg-[#fff] text-[#172431]" : "bg-[#395672] text-[#fff]"
 						}`}
 					>
 						No
