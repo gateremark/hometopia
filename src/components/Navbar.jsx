@@ -29,7 +29,7 @@ const Navbar = () => {
 		});
 	}, [auth]);
 	return (
-		<div className="bg-navcolor/50 shadow-md sticky top-0 z-99">
+		<div className="bg-navcolor/50 shadow-md sticky top-0 z-40">
 			<header className="flex justify-between items-center px-3 max-w-6xl mx-auto">
 				<div>
 					<img
