@@ -19,8 +19,8 @@ jobs:
         with:
           node-version: 16
 
-      - name: Generate package-lock.json
-        uses: npm ci
+      - name: Install dependencies
+        uses: bahmutov/npm-install@v1
 
       - name: Build project
         run: npm run build
