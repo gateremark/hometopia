@@ -36,7 +36,7 @@ const Signin = () => {
 				navigate("/");
 
 				// Show a success toast notification
-				toast.success(`Welcome ${user.displayName}! 🥳`);
+				toast.success(`Welcome ${user.displayName}! 🎉`);
 			}
 		} catch (error) {
 			const errorMessage = error.message;

@@ -1,7 +1,24 @@
 import { useState } from "react";
 import { FaHome, FaBath, FaBed } from "react-icons/fa";
+import Loader from "../components/Loader";
+import { toast } from "react-toastify";
+import {
+	getStorage,
+	ref,
+	uploadBytesResumable,
+	getDownloadURL,
+} from "firebase/storage";
+import { getAuth } from "firebase/auth";
+import { v4 as uuidv4 } from "uuid";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { db } from "../firebase";
+import { useNavigate } from "react-router";
 
 const AddListing = () => {
+	const navigate = useNavigate()
+	const auth = getAuth();
+	const [geolocationEnabled, setGeolocationEnabled] = useState(true);
+	const [loading, setLoading] = useState(false);
 	const [formData, setFormData] = useState({
 		type: "rent",
 		name: "",
@@ -11,9 +28,12 @@ const AddListing = () => {
 		furnish: false,
 		address: "",
 		description: "",
-		offer: false,
+		offer: true,
 		cost: 50,
 		discount: 50,
+		latitude: 0,
+		longitude: 0,
+		images: {},
 	});
 	const {
 		type,
@@ -27,11 +47,14 @@ const AddListing = () => {
 		offer,
 		cost,
 		discount,
+		latitude,
+		longitude,
+		images,
 	} = formData;
 	const onChange = (e) => {
 		let bool = null;
-		if (e.target.value === "true")  {
-			bool = true
+		if (e.target.value === "true") {
+			bool = true;
 		}
 		if (e.target.value === "false") {
 			bool = false;
@@ -41,25 +64,130 @@ const AddListing = () => {
 		if (e.target.files) {
 			setFormData((prevState) => ({
 				...prevState,
-				images: e.target.files
-			}))
+				images: e.target.files,
+			}));
 		}
 
 		// Text/Boolean/Number
-		if (!e.target.files){
+		if (!e.target.files) {
 			setFormData((prevState) => ({
 				...prevState,
-				[e.target.id]: bool ?? e.target.value
-			}))
+				[e.target.id]: bool ?? e.target.value,
+			}));
 		}
 	};
+	const onSubmit = async (e) => {
+		e.preventDefault();
+		setLoading(true);
+		if (+discount >= +cost) {
+			setLoading(false);
+			toast.error("Discounted Cost needs to be less than Regular Cost 💰");
+			return;
+		}
+		if (images.length > 6) {
+			toast.error("Maximum of 6 Images Allowed");
+			return;
+		}
+
+		let geolocation = {};
+		let location;
+		{
+			/*
+		if (geolocationEnabled) {
+			const response = await fetch(
+				`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${process.env.GEOCODE_API_KEY}`,
+			);
+			const data = await response.json();
+			console.log(data);
+			geolocation.lat = data.results[0]?.geometry.location.lat ?? 0;
+			geolocation.lng = data.results[0]?.geometry.location.lng ?? 0;
+
+			location = data.status === "ZERO_RESULTS" && undefined;
+
+			if (location === undefined) {
+				setLoading(false);
+				toast.error("Please Enter a Correct Address");
+				return;
+			}
+		} else {
+			geolocation.lat = latitude;
+			geolocation.lng = longitude;
+		} 
+		*/
+		}
+
+		const storeImage = async (image) => {
+			return new Promise((resolve, reject) => {
+				const storage = getStorage();
+				const filename = `${auth.currentUser.uid}-${image.name}-${uuidv4()}`;
+				const storageRef = ref(storage, `homeimages/${filename}`);
+				const uploadTask = uploadBytesResumable(storageRef, image);
+
+				uploadTask.on(
+					"state_changed",
+					(snapshot) => {
+						// Observe state change events such as progress, pause, and resume
+						// Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+						const progress =
+							(snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+						console.log("Upload is " + progress + "% done");
+						switch (snapshot.state) {
+							case "paused":
+								console.log("Upload is paused");
+								break;
+							case "running":
+								console.log("Upload is running");
+								break;
+						}
+					},
+					(error) => {
+						// Handle unsuccessful uploads
+						reject(error);
+					},
+					() => {
+						// Handle successful uploads on complete
+						// For instance, get the download URL: https://firebasestorage.googleapis.com/...
+						getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+							resolve(downloadURL);
+						});
+					},
+				);
+			});
+		};
+
+		const imgUrls = await Promise.all(
+			[...images].map((image) => storeImage(image)),
+		).catch((error) => {
+			setLoading(false);
+			toast.error("Images not Uploaded");
+			return;
+		});
+		const formDataCopy = {
+			...formData,
+			imgUrls,
+			geolocation,
+			timestamp: serverTimestamp(),
+		};
+		delete formDataCopy.images;
+		!formDataCopy.offer && delete formDataCopy.discount;
+		delete formDataCopy.latitude;
+		delete formDataCopy.longitude;
+		const docRef = await addDoc(collection(db, "listings"), formDataCopy);
+		setLoading(false);
+		toast.success("Listing Created 🎉");
+		navigate(`/category/${formDataCopy.type}/${docRef.id}`)
+	};
+
+	if (loading) {
+		return <Loader />;
+	}
 	return (
 		<main className="max-w-lg px-2 mx-auto">
 			<FaHome className="mt-4 m-auto text-4xl text-[#10192D]" />
 			<h1 className="text-4xl text-center font-bold text-[#202e3d]">
 				Add Listing
 			</h1>
-			<form action="" className="">
+			<form action="" onSubmit={onSubmit} className="">
 				<p className="text-xl mt-6 mb-2 text-center font-semibold text-[#202e3d]">
 					Sell / Rent
 				</p>
@@ -209,6 +337,42 @@ const AddListing = () => {
 					required
 					className="w-full text-center text-xl placeholder:text-[#808080] border-[#808080] hover:shadow-xl hover:bg-[#fff] focus:shadow-xl active:shadow-xl rounded transition ease-in-out"
 				/>
+				{!geolocationEnabled && (
+					<div className="flex justify-between mx-10 mt-6 mb-3">
+						<div>
+							<p className="text-xl mb-2 text-center font-semibold text-[#202e3d]">
+								Latitude
+							</p>
+
+							<input
+								type="number"
+								id="latitude"
+								value={latitude}
+								onChange={onChange}
+								min="-90"
+								max="90"
+								required
+								className="text-center w-full text-xl border-[#808080] hover:shadow-xl hover:bg-[#fff] focus:shadow-xl active:shadow-xl rounded transition ease-in-out"
+							/>
+						</div>
+						<div>
+							<p className="text-xl mb-2 text-center font-semibold text-[#202e3d]">
+								Longitude
+							</p>
+
+							<input
+								type="number"
+								id="longitude"
+								value={longitude}
+								onChange={onChange}
+								min="-180"
+								max="180"
+								required
+								className="text-center w-full text-xl border-[#808080] hover:shadow-xl hover:bg-[#fff] focus:shadow-xl active:shadow-xl rounded transition ease-in-out"
+							/>
+						</div>
+					</div>
+				)}
 				<p className="text-xl mt-6 mb-2 text-center font-semibold text-[#202e3d]">
 					Description
 				</p>

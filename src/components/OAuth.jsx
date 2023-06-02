@@ -29,7 +29,7 @@ const OAuth = () => {
 			navigate("/");
 
 			// Show a success toast notification
-			toast.success(`Welcome ${user.displayName}! 🥳`);
+			toast.success(`Welcome ${user.displayName}! 🎉`);
 		} catch (error) {
 			toast.error("Could not authorize with Google 😢");
 		}
