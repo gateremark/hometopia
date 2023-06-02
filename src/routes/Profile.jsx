@@ -1,17 +1,28 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Profilepic from "../assets/logo/profile.png";
 import { getAuth, updateProfile } from "firebase/auth";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
-import { doc, updateDoc } from "firebase/firestore";
+import {
+	collection,
+	doc,
+	getDocs,
+	orderBy,
+	query,
+	updateDoc,
+	where,
+} from "firebase/firestore";
 import { db } from "../firebase";
 import { FaHome } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import ListingItem from "../components/ListingItem";
 
 const Profile = () => {
 	const auth = getAuth();
 	const navigate = useNavigate();
 	const [changeName, setChangeName] = useState(false);
+	const [listings, setListings] = useState(null);
+	const [loading, setLoading] = useState(true);
 	const [formData, setFormData] = useState({
 		name: auth.currentUser.displayName,
 		email: auth.currentUser.email,
@@ -50,6 +61,27 @@ const Profile = () => {
 			toast.error("Could not update the Profile Details 😢");
 		}
 	};
+	useEffect(() => {
+		const fetchUserListings = async () => {
+			const listingRef = collection(db, "listings");
+			const q = query(
+				listingRef,
+				where("userRef", "==", auth.currentUser.uid),
+				orderBy("timestamp", "desc"),
+			);
+			const querySnap = await getDocs(q);
+			let listings = [];
+			querySnap.forEach((doc) => {
+				return listings.push({
+					id: doc.id,
+					data: doc.data(),
+				});
+			});
+			setListings(listings);
+			setLoading(false);
+		};
+		fetchUserListings();
+	}, [auth.currentUser.uid]);
 	return (
 		<>
 			<section>
@@ -112,12 +144,33 @@ const Profile = () => {
 						className="w-full mt-4 bg-[#10192D] text-[#fff] font-medium uppercase shadow-lg hover:shadow-xl p-4 rounded cursor-pointc text-2xl hover:bg-[#192d41] transition duration-200 ease-in-out active:bg-[#10192D]"
 						title="Sell Or Rent your Home"
 					>
-						<Link to="/add-listing" className="flex justify-center items-center gap-4">
+						<Link
+							to="/add-listing"
+							className="flex justify-center items-center gap-4"
+						>
 							<FaHome className="text-4xl" /> Sell Or Rent
 						</Link>
 					</button>
 				</div>
 			</section>
+			<div className="mt-6 px-3 max-w-6xl mx-auto">
+				{!loading && listings.length > 0 && (
+					<>
+						<h1 className="text-2xl text-center font-semibold text-[#202e3d]">
+							My Listings
+						</h1>
+						<ul>
+							{listings.map((listing) => (
+								<ListingItem
+									key={listing.id}
+									id={listing.id}
+									listing={listing.data}
+								/>
+							))}
+						</ul>
+					</>
+				)}
+			</div>
 		</>
 	);
 };
