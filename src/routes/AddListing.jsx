@@ -79,7 +79,7 @@ const AddListing = () => {
 	const onSubmit = async (e) => {
 		e.preventDefault();
 		setLoading(true);
-		if (discount >= cost) {
+		if (offer === true && discount >= cost) {
 			setLoading(false);
 			toast.error("Discounted Cost needs to be less than Regular Cost 💰");
 			return;
@@ -167,6 +167,7 @@ const AddListing = () => {
 			imgUrls,
 			geolocation,
 			timestamp: serverTimestamp(),
+			userRef: auth.currentUser.uid,
 		};
 		delete formDataCopy.images;
 		!formDataCopy.offer && delete formDataCopy.discount;
