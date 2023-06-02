@@ -19,14 +19,11 @@ jobs:
         with:
           node-version: 16
 
-      - name: Install pnpm
-        uses: npm install -g pnpm
-
       - name: Install dependencies
-        uses: pnpm install --frozen-lockfile
+        uses: bahmutov/npm-install@v1
 
       - name: Build project
-        run: pnpm run build
+        run: npm run build
 
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v2
