@@ -28,7 +28,31 @@ const AddListing = () => {
 		cost,
 		discount,
 	} = formData;
-	const onChange = () => {};
+	const onChange = (e) => {
+		let bool = null;
+		if (e.target.value === "true")  {
+			bool = true
+		}
+		if (e.target.value === "false") {
+			bool = false;
+		}
+
+		//Files
+		if (e.target.files) {
+			setFormData((prevState) => ({
+				...prevState,
+				images: e.target.files
+			}))
+		}
+
+		// Text/Boolean/Number
+		if (!e.target.files){
+			setFormData((prevState) => ({
+				...prevState,
+				[e.target.id]: bool ?? e.target.value
+			}))
+		}
+	};
 	return (
 		<main className="max-w-lg px-2 mx-auto">
 			<FaHome className="mt-4 m-auto text-4xl text-[#10192D]" />
@@ -56,7 +80,7 @@ const AddListing = () => {
 					<button
 						type="button"
 						id="type"
-						value="sale"
+						value="rent"
 						onClick={onChange}
 						className={`px-7 py-2 font-medium text-base uppercase shadow-lg rounded hover:shadow-xl focus:shadow-xl active:shadow-xl transition duration-150 ease-in-out w-full cursor-pointc ${
 							type !== "rent"
@@ -137,7 +161,7 @@ const AddListing = () => {
 					<button
 						type="button"
 						id="parking"
-						value={true}
+						value={false}
 						onClick={onChange}
 						className={`px-7 py-2 font-medium text-base uppercase shadow-lg rounded hover:shadow-xl focus:shadow-xl active:shadow-xl transition duration-150 ease-in-out w-full cursor-pointc ${
 							parking ? "bg-[#fff] text-[#172431]" : "bg-[#395672] text-[#fff]"
@@ -164,7 +188,7 @@ const AddListing = () => {
 					<button
 						type="button"
 						id="furnish"
-						value={true}
+						value={false}
 						onClick={onChange}
 						className={`px-7 py-2 font-medium text-base uppercase shadow-lg rounded hover:shadow-xl focus:shadow-xl active:shadow-xl transition duration-150 ease-in-out w-full cursor-pointc ${
 							furnish ? "bg-[#fff] text-[#172431]" : "bg-[#395672] text-[#fff]"
@@ -215,7 +239,7 @@ const AddListing = () => {
 					<button
 						type="button"
 						id="offer"
-						value={true}
+						value={false}
 						onClick={onChange}
 						className={`px-7 py-2 font-medium text-base uppercase shadow-lg rounded hover:shadow-xl focus:shadow-xl active:shadow-xl transition duration-150 ease-in-out w-full cursor-pointc ${
 							offer ? "bg-[#fff] text-[#172431]" : "bg-[#395672] text-[#fff]"
