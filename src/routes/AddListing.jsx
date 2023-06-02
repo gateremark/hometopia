@@ -79,7 +79,7 @@ const AddListing = () => {
 	const onSubmit = async (e) => {
 		e.preventDefault();
 		setLoading(true);
-		if (+discount >= +cost) {
+		if (discount >= cost) {
 			setLoading(false);
 			toast.error("Discounted Cost needs to be less than Regular Cost 💰");
 			return;
