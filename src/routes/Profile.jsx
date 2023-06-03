@@ -159,7 +159,7 @@ const Profile = () => {
 						<h1 className="text-2xl text-center font-semibold text-[#202e3d]">
 							My Listings
 						</h1>
-						<ul>
+						<ul className="sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 mt-4">
 							{listings.map((listing) => (
 								<ListingItem
 									key={listing.id}

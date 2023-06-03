@@ -15,7 +15,7 @@ import { db } from "../firebase";
 import { useNavigate } from "react-router";
 
 const AddListing = () => {
-	const navigate = useNavigate()
+	const navigate = useNavigate();
 	const auth = getAuth();
 	const [geolocationEnabled, setGeolocationEnabled] = useState(true);
 	const [loading, setLoading] = useState(false);
@@ -176,7 +176,7 @@ const AddListing = () => {
 		const docRef = await addDoc(collection(db, "listings"), formDataCopy);
 		setLoading(false);
 		toast.success("Listing Created 🎉");
-		navigate(`/category/${formDataCopy.type}/${docRef.id}`)
+		navigate(`/category/${formDataCopy.type}/${docRef.id}`);
 	};
 
 	if (loading) {
@@ -414,8 +414,8 @@ const AddListing = () => {
 					</button>
 				</div>
 				<div className="my-6">
-					<div className="flex justify-between">
-						<div>
+					<div className="flex flex-col justify-center md:justify-between md:flex-row ">
+						<div className="mb-3 md:mb-0">
 							<p className="text-xl mb-2 font-semibold text-[#202e3d]">
 								Regular Cost
 							</p>
@@ -432,7 +432,7 @@ const AddListing = () => {
 								/>
 								{type === "rent" && (
 									<p className="text-[#172431] font-medium items-center">
-										$ / Month
+										Ksh / Month
 									</p>
 								)}
 							</div>
@@ -456,7 +456,7 @@ const AddListing = () => {
 									/>
 									{type === "rent" && (
 										<p className="text-[#172431] font-medium items-center">
-											$ / Month
+											Ksh / Month
 										</p>
 									)}
 								</div>
