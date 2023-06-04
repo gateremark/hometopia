@@ -5,6 +5,7 @@ import ForgotPass from "./routes/ForgotPass";
 import Signin from "./routes/Signin";
 import Signup from "./routes/Signup";
 import AddListing from "./routes/AddListing";
+import EditListing from "./routes/EditListing";
 import PrivateRoute from "./components/PrivateRoute";
 
 export {
@@ -16,4 +17,5 @@ export {
 	Signup,
 	PrivateRoute,
 	AddListing,
+	EditListing,
 };

@@ -8,6 +8,7 @@ import {
 	Signup,
 	PrivateRoute,
 	AddListing,
+	EditListing
 } from "./Routes";
 import Navbar from "./components/Navbar";
 import { ToastContainer } from "react-toastify";
@@ -29,6 +30,9 @@ function App() {
 					<Route path="/sign-up" element={<Signup />} />
 					<Route path="/add-listing" element={<PrivateRoute />}>
 						<Route path="/add-listing" element={<AddListing />} />
+					</Route>
+					<Route path="/edit-listing" element={<PrivateRoute />}>
+						<Route path="/edit-listing/:listingId" element={<EditListing />} />
 					</Route>
 				</Routes>
 			</Router>
