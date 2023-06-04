@@ -8,7 +8,8 @@ import {
 	Signup,
 	PrivateRoute,
 	AddListing,
-	EditListing
+	EditListing,
+	SingleListing,
 } from "./Routes";
 import Navbar from "./components/Navbar";
 import { ToastContainer } from "react-toastify";
@@ -34,6 +35,10 @@ function App() {
 					<Route path="/edit-listing" element={<PrivateRoute />}>
 						<Route path="/edit-listing/:listingId" element={<EditListing />} />
 					</Route>
+					<Route
+						path="/category/:categoryName/:listingId"
+						element={<SingleListing />}
+					/>
 				</Routes>
 			</Router>
 			<ToastContainer

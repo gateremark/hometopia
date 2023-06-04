@@ -7,6 +7,7 @@ import Signup from "./routes/Signup";
 import AddListing from "./routes/AddListing";
 import EditListing from "./routes/EditListing";
 import PrivateRoute from "./components/PrivateRoute";
+import SingleListing from "./routes/SingleListing";
 
 export {
 	Home,
@@ -18,4 +19,5 @@ export {
 	PrivateRoute,
 	AddListing,
 	EditListing,
+	SingleListing
 };
