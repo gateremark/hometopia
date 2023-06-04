@@ -11,6 +11,8 @@ import SwiperCore, {
 	Pagination,
 } from "swiper";
 import "swiper/css/bundle";
+import { BsShareFill } from "react-icons/bs";
+import { toast } from "react-toastify";
 
 const SingleListing = () => {
 	const params = useParams();
@@ -53,6 +55,12 @@ const SingleListing = () => {
 					</SwiperSlide>
 				))}
 			</Swiper>
+			<div className=" fixed text-[#007aff] top-[10%] right-[3%] z-10 cursor-pointc bg-[#e2e2e2] w-10 h-10 flex justify-center items-center rounded-full" onClick={() => {
+                navigator.clipboard.writeText(window.location.href)
+                toast.success("Link to Property Copied 🎉");
+            } }>
+				<BsShareFill className="text-lg" />
+			</div>
 		</main>
 	);
 };
