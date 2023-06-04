@@ -15,17 +15,20 @@ import "swiper/css/bundle";
 import { BsShareFill } from "react-icons/bs";
 import { toast } from "react-toastify";
 import { FaBath, FaBed, FaParking } from "react-icons/fa";
+import { getAuth } from "firebase/auth";
+import Contact from "../components/Contact";
 
 const SingleListing = () => {
+	const auth = getAuth()
 	const params = useParams();
 	const [listing, setListing] = useState(null);
 	const [loading, setLoading] = useState(true);
-	
-									
+	const [contactLandlord, setContactLandlord] = useState(false)
+
 	SwiperCore.use([Autoplay, Navigation, Pagination]);
 	useEffect(() => {
 		const fetchListing = async () => {
-			const docRef = doc(db, "listings", "FI5z3uk9eRdU2CBuFvci");
+			const docRef = doc(db, "listings", params.listingId);
 			const docSnap = await getDoc(docRef);
 			if (docSnap.exists()) {
 				setListing(docSnap.data());
@@ -74,7 +77,7 @@ const SingleListing = () => {
 				<BsShareFill className="text-lg" />
 			</div>
 			<div className="bg-[#e2e2e2] m-4 flex flex-col md:flex-row max-w-6xl lg:mx-auto p-4 rounded-lg shadow-lg gap-5">
-				<div className="w-full h-[200px] lg-[400px]">
+				<div className="w-full">
 					<p className="text-2xl font-bold mb-3 text-[#002470]">
 						{listing.name} - Ksh{" "}
 						{listing.offer
@@ -92,7 +95,7 @@ const SingleListing = () => {
 							{listing.address}
 						</p>
 					</div>
-					<div className="flex justify-start items-center gap-2 w-[75%] my-3">
+					<div className="flex justify-start items-center gap-5 w-[75%] my-3">
 						<p className="bg-[#421414] text-[#fff] w-full max-w-[200px] rounded-md p-1 text-center font-semibold shadow-md">
 							{listing.type === "rent" ? "Rent" : "Sale"}
 						</p>
@@ -103,12 +106,14 @@ const SingleListing = () => {
 							</p>
 						)}
 					</div>
-					<p className="mb-3">
+					<p>
 						{" "}
-						<span className=" font-semibold text-lg">Description - </span> "
-						{listing.description}"
+						<span className=" font-semibold text-lg text-[#162433]">
+							Description: {" "}
+						</span>{" "}
+						{listing.description}
 					</p>
-					<div className="flex items-center mt-2 gap-10">
+					<div className="flex items-center my-3 gap-10">
 						<div className="flex items-center gap-1">
 							<FaBed />
 							<p className="font-bold text-sm">
@@ -136,6 +141,19 @@ const SingleListing = () => {
 							</p>
 						</div>
 					</div>
+					{listing.userRef !== auth.currentUser?.uid && !contactLandlord && (
+						<div>
+							<button
+								onClick={() => setContactLandlord(true)}
+								className="w-full bg-[#10192D] text-[#fff] font-medium uppercase shadow-md hover:shadow-lg px-7 py-3 rounded cursor-pointc text-base hover:bg-[#192d41] transition duration-150 ease-in-out focus:bg-[#10192D] focus:shadow-lg text-center"
+							>
+								Contact Landlord
+							</button>
+						</div>
+					)}
+					{contactLandlord && (
+						<Contact userRef={listing.userRef} listing={listing} />
+					)}
 				</div>
 				<div className=" bg-[#007aff] w-full h-[200px] lg-[400px] z-10 overflow-x-hidden"></div>
 			</div>
