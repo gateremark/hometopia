@@ -182,7 +182,7 @@ const SingleListing = () => {
 						
 						<Marker position={[-0.39728671480506683, 36.96372787556248]}>
 							<Popup>
-								A pretty CSS3 popup. <br /> Easily customizable.
+								{listing.address}
 							</Popup>
 						</Marker>
 					</MapContainer>

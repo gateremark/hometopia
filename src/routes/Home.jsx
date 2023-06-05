@@ -1,9 +1,10 @@
+import HomeSlider from "../components/HomeSlider";
+
 const Home = () => {
-	return (
-		<div>
-			<h1>Hello, Welcome Home --- Still Building</h1>
-		</div>
-	);
+	return <div>
+		<HomeSlider />
+
+	</div>;
 };
 
 export default Home;

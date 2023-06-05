@@ -27,11 +27,11 @@ const Contact = ({ userRef, listing }) => {
 				<div className="flex flex-col w-full">
 					<p className=" font-medium ">
 						Contact{" "}
-						<span className=" font-bold text-lg text-[#002470]">
+						<span className="font-bold text-lg text-[#002470] capitalize">
 							{landlord.name}
 						</span>{" "}
 						for the{" "}
-						<span className=" font-bold text-lg text-[#002470]">
+						<span className=" font-bold text-lg text-[#002470] capitalize">
 							{listing.name}
 						</span>{" "}
 						property.
@@ -51,7 +51,10 @@ const Contact = ({ userRef, listing }) => {
 					<a
 						href={`mailto:${landlord.email}?.Subject=${listing.name}&body=${message}`}
 					>
-						<button type="button" className="w-full bg-[#10192D] text-[#fff] font-medium uppercase shadow-md hover:shadow-lg px-7 py-3 rounded cursor-pointc text-base hover:bg-[#192d41] transition duration-150 ease-in-out focus:bg-[#10192D] focus:shadow-lg text-center">
+						<button
+							type="button"
+							className="w-full bg-[#10192D] text-[#fff] font-medium uppercase shadow-md hover:shadow-lg px-7 py-3 rounded cursor-pointc text-base hover:bg-[#192d41] transition duration-150 ease-in-out focus:bg-[#10192D] focus:shadow-lg text-center"
+						>
 							Send Message
 						</button>
 					</a>
