@@ -34,7 +34,7 @@ const Navbar = () => {
 				<div>
 					<img
 						src={Logo}
-						className="cursor-pointc h-10"
+						className="hidden sm:block cursor-pointc h-10"
 						alt="HomeTopia Logo"
 						onClick={() => navigate("/")}
 					/>
