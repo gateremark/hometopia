@@ -24,7 +24,7 @@ const Footer = () => {
 	}, [auth]);
 	return (
 		<div
-			className="relative w-[100%] min-h-[100px] px-5 py-12 flex justify-center items-center flex-col bg-[#3586ff]"
+			className="relative w-[100%] min-h-[100px] px-5 py-12 flex justify-center items-center flex-col bg-[#3586ff] shadow-lg shadow-[#3586ff]"
 			id="waves"
 		>
 			<div className="">
