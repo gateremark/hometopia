@@ -17,6 +17,7 @@ import { toast } from "react-toastify";
 import { FaBath, FaBed, FaParking } from "react-icons/fa";
 import { getAuth } from "firebase/auth";
 import Contact from "../components/Contact";
+import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 
 const SingleListing = () => {
 	const auth = getAuth()
@@ -109,7 +110,7 @@ const SingleListing = () => {
 					<p>
 						{" "}
 						<span className=" font-semibold text-lg text-[#162433]">
-							Description: {" "}
+							Description:{" "}
 						</span>{" "}
 						{listing.description}
 					</p>
@@ -155,7 +156,37 @@ const SingleListing = () => {
 						<Contact userRef={listing.userRef} listing={listing} />
 					)}
 				</div>
-				<div className=" bg-[#007aff] w-full h-[200px] lg-[400px] z-10 overflow-x-hidden"></div>
+				<div className=" w-full h-[200px] md:h-[400px] z-10 overflow-x-hidden mt-6 md:mt-0 md:ml-2 rounded">
+					{/* <MapContainer
+						center={[listing.geolocation.lat, listing.geolocation.lng]}
+						zoom={13}
+						scrollWheelZoom={false}
+					> */}
+					<MapContainer
+						center={[-0.39728671480506683, 36.96372787556248]}
+						zoom={13}
+						scrollWheelZoom={false}
+						style={{ height: "100%", width: "100%" }}
+					>
+						<TileLayer
+							attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+							url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+						/>
+						{/* <Marker
+							position={[listing.geolocation.lat, listing.geolocation.lng]}
+						>
+							<Popup>
+								A pretty CSS3 popup. <br /> Easily customizable.
+							</Popup>
+						</Marker> */}
+						
+						<Marker position={[-0.39728671480506683, 36.96372787556248]}>
+							<Popup>
+								A pretty CSS3 popup. <br /> Easily customizable.
+							</Popup>
+						</Marker>
+					</MapContainer>
+				</div>
 			</div>
 		</main>
 	);
