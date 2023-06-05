@@ -42,3 +42,43 @@ body {
 .swiper-button-prev{
 	cursor: url(assets/logo/pointer.png), pointer;
 }
+
+#wave1 {
+  animation: animateWaves 4s linear infinite;
+  background: url("https://i.ibb.co/wQZVxxk/wave.png");
+  background-size: 1000px 100px;
+}
+
+#wave2 {
+  animation: animate 4s linear infinite !important;
+  background: url("https://i.ibb.co/wQZVxxk/wave.png");
+  background-size: 1000px 100px;
+}
+#wave3 {
+  animation: animateWaves 3s linear infinite;
+  background: url("https://i.ibb.co/wQZVxxk/wave.png");
+  background-size: 1000px 100px;
+}
+#wave4 {
+  animation: animate 3s linear infinite;
+  background: url("https://i.ibb.co/wQZVxxk/wave.png");
+  background-size: 1000px 100px;
+}
+
+@keyframes animateWaves {
+  0% {
+    background-position-x: 1000px;
+  }
+  100% {
+    background-positon-x: 0px;
+  }
+}
+
+@keyframes animate {
+  0% {
+    background-position-x: -1000px;
+  }
+  100% {
+    background-positon-x: 0px;
+  }
+}
