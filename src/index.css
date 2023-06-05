@@ -37,3 +37,8 @@ body {
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 }
+
+.swiper-button-next,
+.swiper-button-prev{
+	cursor: url(assets/logo/pointer.png), pointer;
+}
