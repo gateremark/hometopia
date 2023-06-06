@@ -56,8 +56,8 @@ const ForgotPass = () => {
 							placeholder="Email Address"
 							className="mb-6 w-full px-4 py-2 text-xl text-[#ffffff] bg-[#3c546e] placeholder:text-[#808080] rounded transition ease-in-out"
 						/>
-						<div className="flex justify-between whitespace-nowrap text-sm sm:text-lg">
-							<p className="text-[#172431] font-light mb-6">
+						<div className="flex flex-col sm:flex-row justify-between items-center whitespace-nowrap text-sm sm:text-lg mb-6">
+							<p className="text-[#172431] font-light mb-0 ">
 								Don't Have an Account?
 								<Link
 									to="/sign-up"

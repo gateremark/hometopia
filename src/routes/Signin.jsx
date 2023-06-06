@@ -103,7 +103,7 @@ const Signin = () => {
 								/>
 							)}
 						</div>
-						<div className="flex justify-between whitespace-nowrap text-sm sm:text-lg mb-6">
+						<div className="flex flex-col sm:flex-row justify-between items-center whitespace-nowrap text-sm sm:text-lg mb-6">
 							<p className="text-[#172431] font-light">
 								Don't Have an Account?
 								<Link

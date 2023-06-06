@@ -59,7 +59,7 @@ const Navbar = () => {
 							Offers
 						</li>
 						<li
-							className={`cursor-pointc py-3 text-lg font-semibold text-[#18C7FA] hover:text-[#9dd8eb] ${
+							className={`cursor-pointc py-3 text-lg text-center font-semibold text-[#18C7FA] hover:text-[#9dd8eb] ${
 								(pathRoute("/sign-in") || pathRoute("/profile")) &&
 								"border-b-[3px] text-[#9dd8eb]"
 							} `}
@@ -69,7 +69,7 @@ const Navbar = () => {
 						</li>
 						{pageState !== "Profile" && (
 							<li
-								className={`cursor-pointc py-3 text-lg font-semibold text-[#18C7FA] hover:text-[#9dd8eb] ${
+								className={`cursor-pointc py-3 text-lg text-center font-semibold text-[#18C7FA] hover:text-[#9dd8eb] ${
 									pathRoute("/sign-up") && "border-b-[3px] text-[#9dd8eb]"
 								} `}
 								onClick={() => navigate("/sign-up")}
