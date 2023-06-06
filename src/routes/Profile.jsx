@@ -132,7 +132,7 @@ const Profile = () => {
 							className="w-full bg-transparent py-2 text-3xl text-[#3c546e] text-center border-[#3c546e] transition ease-in-out rounded cursor-pointa"
 						/>
 
-						<div className="w-full flex justify-between whitespace-nowrap text-sm sm:text-lg mt-6 mb-6">
+						<div className="w-full flex flex-col sm:flex-row justify-between items-center whitespace-nowrap text-sm sm:text-lg mt-6 mb-6">
 							<p className="text-[#172431] font-light items-center">
 								Want to change your name?
 								<span
@@ -156,7 +156,7 @@ const Profile = () => {
 					</form>
 					<button
 						type="submit"
-						className="w-full mt-4 bg-[#10192D] text-[#fff] font-medium uppercase shadow-lg hover:shadow-xl p-4 rounded cursor-pointc text-2xl hover:bg-[#192d41] transition duration-200 ease-in-out active:bg-[#10192D]"
+						className="w-full bg-[#10192D] text-[#fff] font-medium uppercase shadow-lg hover:shadow-xl p-4 rounded cursor-pointc text-2xl hover:bg-[#192d41] transition duration-200 ease-in-out active:bg-[#10192D]"
 						title="Sell Or Rent your Home"
 					>
 						<Link
