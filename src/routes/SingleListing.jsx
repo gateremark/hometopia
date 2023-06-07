@@ -17,6 +17,7 @@ import { toast } from "react-toastify";
 import { FaBath, FaBed, FaParking } from "react-icons/fa";
 import { getAuth } from "firebase/auth";
 import Contact from "../components/Contact";
+import Footer from "../components/Footer";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 
 const SingleListing = () => {
@@ -77,7 +78,7 @@ const SingleListing = () => {
 			>
 				<BsShareFill className="text-lg" />
 			</div>
-			<div className="bg-[#e2e2e2] m-4 flex flex-col md:flex-row max-w-6xl lg:mx-auto p-4 rounded-lg shadow-lg gap-5">
+			<div className="bg-[#e2e2e2] mx-4 mt-4 mb-32 flex flex-col md:flex-row max-w-6xl lg:mx-auto p-4 rounded-lg shadow-lg gap-5">
 				<div className="w-full">
 					<p className="text-2xl font-bold mb-3 text-[#002470]">
 						{listing.name} - Ksh{" "}
@@ -179,15 +180,14 @@ const SingleListing = () => {
 								A pretty CSS3 popup. <br /> Easily customizable.
 							</Popup>
 						</Marker> */}
-						
+
 						<Marker position={[-0.39728671480506683, 36.96372787556248]}>
-							<Popup>
-								{listing.address}
-							</Popup>
+							<Popup>{listing.address}</Popup>
 						</Marker>
 					</MapContainer>
 				</div>
 			</div>
+			<Footer />
 		</main>
 	);
 };

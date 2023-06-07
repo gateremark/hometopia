@@ -17,6 +17,7 @@ import { db } from "../firebase";
 import { FaHome } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import ListingItem from "../components/ListingItem";
+import Footer from "../components/Footer";
 
 const Profile = () => {
 	const auth = getAuth();
@@ -168,7 +169,7 @@ const Profile = () => {
 					</button>
 				</div>
 			</section>
-			<div className="mt-6 px-3 max-w-6xl mx-auto">
+			<div className="mt-6 px-3 max-w-6xl mx-auto mb-32">
 				{!loading && listings.length > 0 && (
 					<>
 						<h1 className="text-2xl text-center font-semibold text-[#202e3d]">
@@ -188,6 +189,7 @@ const Profile = () => {
 					</>
 				)}
 			</div>
+			<Footer />
 		</>
 	);
 };

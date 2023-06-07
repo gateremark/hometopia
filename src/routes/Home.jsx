@@ -77,7 +77,7 @@ const Home = () => {
 			} catch (error) {
 				console.log(error);
 			}
-		}
+		};
 		fetchListings();
 	}, []);
 	// Places for sales
@@ -114,9 +114,9 @@ const Home = () => {
 	return (
 		<div>
 			<HomeSlider />
-			<div className="max-w-6xl mx-auto pt-4 space-y-6 mt-6 mb-28">
+			<div className="max-w-6xl mx-auto pt-4 mt-6 mb-32">
 				{offerListings && offerListings.length > 0 && (
-					<div className="">
+					<div className="mb-6">
 						<div className="mx-4 mb-6 flex justify-between items-center">
 							<h2 className="px-3 text-2xl font-semibold text-[#10192D]">
 								On Offer 🎉
@@ -143,7 +143,7 @@ const Home = () => {
 				)}
 
 				{rentListings && rentListings.length > 0 && (
-					<div className="">
+					<div className="mb-6">
 						<div className="mx-4 mb-6 flex justify-between items-center">
 							<h2 className="px-3 text-2xl font-semibold text-[#10192D]">
 								Rentals
@@ -196,7 +196,7 @@ const Home = () => {
 					</div>
 				)}
 			</div>
-			<Footer />
+			 <Footer />
 		</div>
 	);
 };
