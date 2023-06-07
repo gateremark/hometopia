@@ -107,7 +107,7 @@ const Footer = () => {
 					</li>
 				)}
 			</ul>
-			<p className="mt-6 mb-4 text-base text-[#e2e2e2] text-center">
+			<p className="my-6 text-base text-[#e2e2e2] text-center">
 				&copy; 2023 HomeTopia | All Rights Reserved | by{" "}
 				<span className="hover:text-[#001f41] transition duration-300 ease-in-out">
 					{" "}

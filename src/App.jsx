@@ -10,6 +10,7 @@ import {
 	AddListing,
 	EditListing,
 	SingleListing,
+	Category,
 } from "./Routes";
 import Navbar from "./components/Navbar";
 import { ToastContainer } from "react-toastify";
@@ -26,6 +27,7 @@ function App() {
 						<Route path="/profile" element={<Profile />} />
 					</Route>
 					<Route path="/offers" element={<Offers />} />
+					<Route path="/category/:categoryName" element={<Category />} />
 					<Route path="/forgot-password" element={<ForgotPass />} />
 					<Route path="/sign-in" element={<Signin />} />
 					<Route path="/sign-up" element={<Signup />} />

@@ -8,6 +8,7 @@ import AddListing from "./routes/AddListing";
 import EditListing from "./routes/EditListing";
 import PrivateRoute from "./components/PrivateRoute";
 import SingleListing from "./routes/SingleListing";
+import Category from "./routes/Category";
 
 export {
 	Home,
@@ -19,5 +20,6 @@ export {
 	PrivateRoute,
 	AddListing,
 	EditListing,
-	SingleListing
+	SingleListing,
+	Category,
 };

@@ -58,7 +58,7 @@ const Profile = () => {
 					name,
 				});
 			}
-			toast.success("Profile Details Updated!");
+			toast.success("Name Updated!");
 		} catch (error) {
 			toast.error("Could not update the Profile Details 😢");
 		}
