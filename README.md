@@ -45,13 +45,22 @@ To get started with HomeTopia locally, follow these steps:
    Create a Firebase project and obtain the necessary credentials.
    Update the Firebase configuration in `src/firebase.jsx` with your own credentials.
    
-4. Start the development server:
+4.  Register for a Geocoding API via Google Cloud
+    - Create a `.env.local` file in the root directory of the project.
+    - Register for a geocoding API key via the Google Cloud platform. You can follow the official documentation to obtain the API key.
+    - Open the `.env.local` file and add the following line:
+      ```env
+      VITE_REACT_APP_API_KEY=YOUR_API_KEY
+      ```
+      Replace `YOUR_API_KEY` with the actual API key you obtained from Google Cloud. By setting up the .env.local file with the appropriate API key, the application will be able to access the geocoding API and provide accurate property locations.
+   
+5. Start the development server:
 
    ```javascript
    pnpm run dev
    ```
 
-5. Open your browser and visit specified local host port to view the app eg. `http://localhost:5173`.
+6. Open your browser and visit specified local host port to view the app eg. `http://localhost:5173`.
 
 
 ## Deployment
