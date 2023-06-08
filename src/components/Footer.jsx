@@ -8,6 +8,7 @@ import {
 } from "react-icons/io5";
 import { useEffect, useState } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import Greetings from "./Greetings";
 
 const Footer = () => {
 	const [pageState, setPageState] = useState("Sign In");
@@ -45,6 +46,7 @@ const Footer = () => {
 					id="wave4"
 				></div>
 			</div>
+
 			<div className="relative flex justify-center items-center my-2.5 mx-0 flex-wrap">
 				<a
 					href="https://github.com/gateremark"
@@ -107,7 +109,8 @@ const Footer = () => {
 					</li>
 				)}
 			</ul>
-			<p className="my-6 text-base text-[#e2e2e2] text-center">
+			<Greetings/>
+			<p className="mt-4 mb-10 text-base text-[#e2e2e2] text-center">
 				&copy; 2023 HomeTopia | All Rights Reserved | by{" "}
 				<span className="hover:text-[#001f41] transition duration-300 ease-in-out">
 					{" "}
