@@ -49,6 +49,7 @@ To get started with HomeTopia locally, follow these steps:
     - Create a `.env.local` file in the root directory of the project.
     - Register for a geocoding API key via the Google Cloud platform. You can follow the official documentation to obtain the API key.
     - Open the `.env.local` file and add the following line:
+    
       ```env
       VITE_REACT_APP_API_KEY=YOUR_API_KEY
       ```
