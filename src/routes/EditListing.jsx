@@ -13,8 +13,8 @@ import { v4 as uuidv4 } from "uuid";
 import {
 	addDoc,
 	collection,
-    doc,
-    getDoc,
+	doc,
+	getDoc,
 	serverTimestamp,
 	updateDoc,
 } from "firebase/firestore";
@@ -27,6 +27,7 @@ const AddListing = () => {
 	const [geolocationEnabled, setGeolocationEnabled] = useState(true);
 	const [loading, setLoading] = useState(false);
 	const [listing, setListing] = useState(null);
+	const apiKey = import.meta.env.VITE_REACT_APP_API_KEY;
 	const [formData, setFormData] = useState({
 		type: "rent",
 		name: "",
@@ -62,12 +63,12 @@ const AddListing = () => {
 
 	const params = useParams();
 
-    useEffect(() => {
-			if (listing && listing.userRef !== auth.currentUser.uid) {
-				toast.error("You cannot edit this listing");
-				navigate("/");
-			}
-		}, [auth.currentUser.uid, listing, navigate]);
+	useEffect(() => {
+		if (listing && listing.userRef !== auth.currentUser.uid) {
+			toast.error("You cannot edit this listing");
+			navigate("/");
+		}
+	}, [auth.currentUser.uid, listing, navigate]);
 
 	useEffect(() => {
 		setLoading(true);
@@ -85,7 +86,7 @@ const AddListing = () => {
 		};
 		fetchListing();
 	}, [navigate, params.listingId]);
-    
+
 	const onChange = (e) => {
 		let bool = null;
 		if (e.target.value === "true") {
@@ -126,11 +127,10 @@ const AddListing = () => {
 
 		let geolocation = {};
 		let location;
-		{
-			/*
+
 		if (geolocationEnabled) {
 			const response = await fetch(
-				`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${process.env.GEOCODE_API_KEY}`,
+				`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${apiKey}`,
 			);
 			const data = await response.json();
 			console.log(data);
@@ -147,8 +147,6 @@ const AddListing = () => {
 		} else {
 			geolocation.lat = latitude;
 			geolocation.lng = longitude;
-		} 
-		*/
 		}
 
 		const storeImage = async (image) => {

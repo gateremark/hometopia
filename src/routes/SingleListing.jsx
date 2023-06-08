@@ -21,11 +21,11 @@ import Footer from "../components/Footer";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 
 const SingleListing = () => {
-	const auth = getAuth()
+	const auth = getAuth();
 	const params = useParams();
 	const [listing, setListing] = useState(null);
 	const [loading, setLoading] = useState(true);
-	const [contactLandlord, setContactLandlord] = useState(false)
+	const [contactLandlord, setContactLandlord] = useState(false);
 
 	SwiperCore.use([Autoplay, Navigation, Pagination]);
 	useEffect(() => {
@@ -158,32 +158,31 @@ const SingleListing = () => {
 					)}
 				</div>
 				<div className=" w-full h-[200px] md:h-[400px] z-10 overflow-x-hidden mt-6 md:mt-0 md:ml-2 rounded">
-					{/* <MapContainer
-						center={[listing.geolocation.lat, listing.geolocation.lng]}
-						zoom={13}
-						scrollWheelZoom={false}
-					> */}
 					<MapContainer
-						center={[-0.39728671480506683, 36.96372787556248]}
+						center={[listing.geolocation.lat, listing.geolocation.lng]}
 						zoom={13}
 						scrollWheelZoom={false}
 						style={{ height: "100%", width: "100%" }}
 					>
+						{/* <MapContainer
+						center={[-0.39728671480506683, 36.96372787556248]}
+						zoom={13}
+						scrollWheelZoom={false}
+						style={{ height: "100%", width: "100%" }}
+					> */}
 						<TileLayer
 							attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 							url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 						/>
-						{/* <Marker
+						<Marker
 							position={[listing.geolocation.lat, listing.geolocation.lng]}
 						>
-							<Popup>
-								A pretty CSS3 popup. <br /> Easily customizable.
-							</Popup>
-						</Marker> */}
-
-						<Marker position={[-0.39728671480506683, 36.96372787556248]}>
 							<Popup>{listing.address}</Popup>
 						</Marker>
+
+						{/* <Marker position={[-0.39728671480506683, 36.96372787556248]}>
+							<Popup>{listing.address}</Popup>
+						</Marker> */}
 					</MapContainer>
 				</div>
 			</div>
