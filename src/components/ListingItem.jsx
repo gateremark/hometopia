@@ -20,8 +20,7 @@ const ListingItem = ({ listing, id, onEdit, onDelete }) => {
 				{/* <Moment fromNow>{listing.timestamp?.toDate()}</Moment> */}
 				{/* <Moment>1976-04-19T12:59-0500</Moment> */}
 				<p className="absolute top-2 left-2 bg-[#10192D] text-[#e2e2e2] uppercase text-xs font-semibold rounded-md px-2 py-1 shadow-lg">
-					{moment(date).format("Do MMMM YYYY, h:mm a")}
-					
+					{moment(date).startOf("day").fromNow()}
 				</p>
 				<div className="w-full p-3 relative">
 					<div className="flex items-center gap-1">
