@@ -61,7 +61,7 @@ const SingleListing = () => {
 						<div
 							className="relative w-full overflow-hidden h-[400px]"
 							style={{
-								background: `url(${listing.imgUrls[i]}) center no-repeat`,
+								background: `url("${listing.imgUrls[i]}") center no-repeat`,
 								backgroundSize: "cover",
 							}}
 						></div>

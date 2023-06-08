@@ -6,7 +6,7 @@ const Greetings = () => {
 	if (hours < 12) greet = "Morning";
 	else if (hours >= 12 && hours <= 17) greet = "Afternoon";
 	else if (hours >= 17 && hours <= 24) greet = "Evening";
-	console.log(greet);
+	// console.log(greet);
 
 	return (
 		<p className=" z-30 font-medium mt-2 text-[#ffffff] hover:text-[#00f7ff] transition duration-500 ease-in-out">

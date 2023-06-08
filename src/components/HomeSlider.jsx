@@ -65,11 +65,13 @@ const HomeSlider = () => {
 						>
 							<div
 								style={{
-									background: `url(${data.imgUrls[0]}) center, no-repeat`,
+									background: `url("${data.imgUrls[0]}") center, no-repeat`,
 									backgroundSize: "cover",
 								}}
 								className="relative w-full h-[400px] overflow-hidden cursor-pointc"
-							></div>
+							>
+								{/* {console.log(data.imgUrls[0])} */}
+							</div>
 							<p className="text-[#e2e2e2] absolute left-1 top-3 font-medium max-w-[90%] bg-[#10192D] shadow-lg opacity-90 p-2 rounded-br-3xl">
 								{data.name}
 							</p>
@@ -80,7 +82,7 @@ const HomeSlider = () => {
 											.toString()
 											.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 									: data.cost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-                                    {data.type === "rent" && " /month"}
+								{data.type === "rent" && " /month"}
 							</p>
 						</SwiperSlide>
 					))}
