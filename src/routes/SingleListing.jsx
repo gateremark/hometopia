@@ -79,7 +79,7 @@ const SingleListing = () => {
 				<BsShareFill className="text-lg" />
 			</div>
 			<div className="bg-[#e2e2e2] mx-4 mt-4 mb-32 flex flex-col md:flex-row max-w-6xl lg:mx-auto p-4 rounded-lg shadow-lg gap-5">
-				<div className="w-full">
+				<div className="w-full relative">
 					<p className="text-2xl font-bold mb-3 text-[#002470]">
 						{listing.name} - Ksh{" "}
 						{listing.offer
@@ -144,10 +144,10 @@ const SingleListing = () => {
 						</div>
 					</div>
 					{listing.userRef !== auth.currentUser?.uid && !contactLandlord && (
-						<div>
+						<div className="static w-full bottom-1 md:absolute">
 							<button
 								onClick={() => setContactLandlord(true)}
-								className="w-full bg-[#10192D] text-[#fff] font-medium uppercase shadow-md hover:shadow-lg px-7 py-3 rounded cursor-pointc text-base hover:bg-[#192d41] transition duration-150 ease-in-out focus:bg-[#10192D] focus:shadow-lg text-center"
+								className=" w-full bg-[#10192D] text-[#fff] font-medium uppercase shadow-md hover:shadow-lg px-7 py-3 rounded cursor-pointc text-base hover:bg-[#192d41] transition duration-150 ease-in-out focus:bg-[#10192D] focus:shadow-lg text-center"
 							>
 								Contact Landlord
 							</button>
