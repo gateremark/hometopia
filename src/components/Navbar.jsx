@@ -43,25 +43,30 @@ const Navbar = () => {
 				<div>
 					<ul className="flex space-x-10">
 						<li
-							className={`cursor-pointc py-3 text-lg font-semibold text-[#18C7FA] hover:text-[#024d66] ${
-								pathRoute("/") && "border-b-[3px] text-[#024]"
+							className={`cursor-pointc py-3 text-lg font-semibold hover:text-[#024d66] ${
+								pathRoute("/")
+									? "border-b-[3px] border-[#024] text-[#024]"
+									: "text-[#18C7FA]"
 							} `}
 							onClick={() => navigate("/")}
 						>
 							Home
 						</li>
 						<li
-							className={`cursor-pointc py-3 text-lg font-semibold text-[#18C7FA] hover:text-[#024d66] ${
-								pathRoute("/offers") && "border-b-[3px] text-[#024]"
+							className={`cursor-pointc py-3 text-lg font-semibold hover:text-[#024d66] ${
+								pathRoute("/offers")
+									? "border-b-[3px] border-[#024] text-[#024]"
+									: "text-[#18C7FA]"
 							} `}
 							onClick={() => navigate("/offers")}
 						>
 							Offers
 						</li>
 						<li
-							className={`cursor-pointc py-3 text-lg text-center font-semibold text-[#18C7FA] hover:text-[#024d66] ${
-								(pathRoute("/sign-in") || pathRoute("/profile")) &&
-								"border-b-[3px] text-[#024]"
+							className={`cursor-pointc py-3 text-lg text-center font-semibold hover:text-[#024d66] ${
+								pathRoute("/sign-in") || pathRoute("/profile")
+									? "border-b-[3px] border-[#024] text-[#024]"
+									: "text-[#18C7FA]"
 							} `}
 							onClick={() => navigate("/profile")}
 						>
@@ -69,8 +74,10 @@ const Navbar = () => {
 						</li>
 						{pageState !== "Profile" && (
 							<li
-								className={`cursor-pointc py-3 text-lg text-center font-semibold text-[#18C7FA] hover:text-[#024d66] ${
-									pathRoute("/sign-up") && "border-b-[3px] text-[#024]"
+								className={`cursor-pointc py-3 text-lg text-center font-semibold hover:text-[#024d66] ${
+									pathRoute("/sign-up")
+										? "border-b-[3px] border-[#024] text-[#024]"
+										: "text-[#18C7FA]"
 								} `}
 								onClick={() => navigate("/sign-up")}
 							>
