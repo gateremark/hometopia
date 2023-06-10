@@ -28,14 +28,18 @@ html {
 }
 body {
 	height: 100%;
-	background: -webkit-linear-gradient(
+	/* background: -webkit-linear-gradient(
 		180deg,
 		#6384a8 0%,
 		#a8c6de 100%
-	); /* For Safari/Chrome */
-	background: linear-gradient(180deg, #6384a8 0%, #a8c6de 100%);
+	);  */
+
+  background-color: #F4F4F4;
+  
+  /* For Safari/Chrome */
+	/* background: linear-gradient(180deg, #6384a8 0%, #a8c6de 100%);
 	background-repeat: no-repeat;
-	background-attachment: fixed;
+	background-attachment: fixed; */
 }
 
 .swiper-button-next,

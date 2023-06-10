@@ -4,7 +4,7 @@ export default {
 	theme: {
 		extend: {},
 		colors: {
-			navcolor: "#53708E",
+			navcolor: "#e2e2e2",
 			transparent: "transparent",
 		},
 		cursor: {
