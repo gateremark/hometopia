@@ -9,7 +9,7 @@ const Greetings = () => {
 	// console.log(greet);
 
 	return (
-		<p className=" z-30 font-medium mt-2 text-[#ffffff] hover:text-[#00f7ff] transition duration-500 ease-in-out">
+		<p className=" z-30 font-medium mt-2 text-[#ffffff] hover:text-[#024d66] transition duration-500 ease-in-out">
 			<span>Good {greet},</span>
 		</p>
 	);

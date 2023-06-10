@@ -25,7 +25,7 @@ const Footer = () => {
 	}, [auth]);
 	return (
 		<div
-			className="relative w-[100%] h-[150px] px-5 py-12 flex justify-center items-center flex-col bg-[#3586ff] shadow-lg shadow-[#3586ff]"
+			className="relative w-[100%] h-[150px] px-5 py-12 flex justify-center items-center flex-col bg-[#18C7FA] shadow-lg shadow-[#18C7FA]"
 			id="waves"
 		>
 			<div className="">
@@ -109,8 +109,8 @@ const Footer = () => {
 					</li>
 				)}
 			</ul>
-			<Greetings/>
-			<p className="mt-4 mb-10 text-base text-[#e2e2e2] text-center">
+			<Greetings />
+			<p className="mt-4 mb-10 text-base text-[#ffffff] text-center">
 				&copy; 2023 HomeTopia | All Rights Reserved | by{" "}
 				<span className="hover:text-[#001f41] transition duration-300 ease-in-out">
 					{" "}
