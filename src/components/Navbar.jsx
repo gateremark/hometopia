@@ -44,7 +44,7 @@ const Navbar = () => {
 					<ul className="flex space-x-10">
 						<li
 							className={`cursor-pointc py-3 text-lg font-semibold text-[#18C7FA] hover:text-[#024d66] ${
-								pathRoute("/") && "border-b-[3px] text-[#024d66]"
+								pathRoute("/") && "border-b-[3px] text-[#024]"
 							} `}
 							onClick={() => navigate("/")}
 						>
@@ -52,7 +52,7 @@ const Navbar = () => {
 						</li>
 						<li
 							className={`cursor-pointc py-3 text-lg font-semibold text-[#18C7FA] hover:text-[#024d66] ${
-								pathRoute("/offers") && "border-b-[3px] text-[#024d66]"
+								pathRoute("/offers") && "border-b-[3px] text-[#024]"
 							} `}
 							onClick={() => navigate("/offers")}
 						>
@@ -61,7 +61,7 @@ const Navbar = () => {
 						<li
 							className={`cursor-pointc py-3 text-lg text-center font-semibold text-[#18C7FA] hover:text-[#024d66] ${
 								(pathRoute("/sign-in") || pathRoute("/profile")) &&
-								"border-b-[3px] text-[#024d66]"
+								"border-b-[3px] text-[#024]"
 							} `}
 							onClick={() => navigate("/profile")}
 						>
@@ -70,7 +70,7 @@ const Navbar = () => {
 						{pageState !== "Profile" && (
 							<li
 								className={`cursor-pointc py-3 text-lg text-center font-semibold text-[#18C7FA] hover:text-[#024d66] ${
-									pathRoute("/sign-up") && "border-b-[3px] text-[#024d66]"
+									pathRoute("/sign-up") && "border-b-[3px] text-[#024]"
 								} `}
 								onClick={() => navigate("/sign-up")}
 							>
@@ -80,7 +80,7 @@ const Navbar = () => {
 						<li className="py-4">
 							<a
 								href="https://github.com/gateremark/hometopia"
-								className="cursor-pointc text-xl font-semibold text-[#334155] items-center hover:text-[#18C7FA] transition duration-500 ease-in-out focus:outline-none focus:ring-offset-2"
+								className="cursor-pointc text-xl font-semibold text-[#024] items-center hover:text-[#18C7FA] transition duration-500 ease-in-out focus:outline-none focus:ring-offset-2"
 								target="_blank"
 							>
 								<FaGithub />
