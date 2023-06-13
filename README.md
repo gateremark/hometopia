@@ -2,6 +2,8 @@
 
 Welcome to HomeTopia, a powerful web platform for buying, selling, and renting properties. Find your dream home or perfect investment property with ease.
 
+![Plain/Neutral Web personality](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/mhbs9s57gdo96nhnhyeo.png)
+
 [HomeTopia](https://gateremark.vercel.app/img/projects/projects_post_8.png)
 
 ## Technologies Used
