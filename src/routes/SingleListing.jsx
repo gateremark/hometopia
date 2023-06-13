@@ -78,9 +78,9 @@ const SingleListing = () => {
 			>
 				<BsShareFill className="text-lg" />
 			</div>
-			<div className="bg-[#e2e2e2] mx-4 mt-4 mb-32 flex flex-col md:flex-row max-w-6xl lg:mx-auto p-4 rounded-lg shadow-lg gap-5">
+			<div className="bg-[#0D1117] mx-4 mt-4 mb-32 flex flex-col md:flex-row max-w-6xl lg:mx-auto p-4 rounded-lg shadow-lg gap-5">
 				<div className="w-full relative">
-					<p className="text-2xl font-bold mb-3 text-[#002470]">
+					<p className="text-2xl font-bold mb-3 text-[#1c9bef]">
 						{listing.name} - Ksh{" "}
 						{listing.offer
 							? listing.discount
@@ -92,13 +92,13 @@ const SingleListing = () => {
 						{listing.type === "rent" ? "/month" : ""}
 					</p>
 					<div className="flex items-center gap-1">
-						<MdLocationPin className="h-4 w-4 text-[#10192D]" />
-						<p className="font-semibold text-base mb-[2px] text-[#202e3d]">
+						<MdLocationPin className="h-4 w-4 text-[#9bb4ce]" />
+						<p className="font-semibold text-base mb-[2px] text-[#9bb4ce]">
 							{listing.address}
 						</p>
 					</div>
 					<div className="flex justify-start items-center gap-5 w-[75%] my-3">
-						<p className="bg-[#421414] text-[#fff] w-full max-w-[200px] rounded-md p-1 text-center font-semibold shadow-md">
+						<p className="bg-[#641111] text-[#fff] w-full max-w-[200px] rounded-md p-1 text-center font-semibold shadow-md">
 							{listing.type === "rent" ? "Rent" : "Sale"}
 						</p>
 						{listing.offer && (
@@ -108,37 +108,37 @@ const SingleListing = () => {
 							</p>
 						)}
 					</div>
-					<p>
+					<p className=" text-[#e2e2e2]">
 						{" "}
-						<span className=" font-semibold text-lg text-[#162433]">
+						<span className=" font-semibold text-lg text-[#457b9d]">
 							Description:{" "}
 						</span>{" "}
 						{listing.description}
 					</p>
 					<div className="flex items-center my-3 gap-10">
 						<div className="flex items-center gap-1">
-							<FaBed />
-							<p className="font-bold text-sm">
+							<FaBed className="text-[#f6f6f6]" />
+							<p className="font-bold text-sm text-[#f6f6f6]">
 								{listing.bedrooms > 1 ? `${listing.bedrooms} Beds` : "1 Bed"}
 							</p>
 						</div>
 						<div className="flex items-center gap-1">
-							<FaBath />
-							<p className="font-bold text-sm">
+							<FaBath className="text-[#f6f6f6]" />
+							<p className="font-bold text-sm text-[#f6f6f6]">
 								{listing.restrooms > 1
 									? `${listing.restrooms} Rests`
 									: "1 Rest"}
 							</p>
 						</div>
 						<div className="flex items-center gap-1">
-							<FaParking />
-							<p className="font-bold text-sm">
+							<FaParking className="text-[#f6f6f6]" />
+							<p className="font-bold text-sm text-[#f6f6f6]">
 								{listing.parking ? "Available Parking" : "No Parking"}
 							</p>
 						</div>
 						<div className="flex items-center gap-1">
-							<MdOutlineChair />
-							<p className="font-bold text-sm">
+							<MdOutlineChair className="text-[#f6f6f6]" />
+							<p className="font-bold text-sm text-[#f6f6f6]">
 								{listing.furnish ? "Furnished" : "Not Furnished"}
 							</p>
 						</div>

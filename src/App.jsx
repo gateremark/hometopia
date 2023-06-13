@@ -18,7 +18,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 function App() {
 	return (
-		<>
+		<div className=" bg-[#191c20] ">
 			<Router>
 				<Navbar />
 				<Routes>
@@ -55,7 +55,7 @@ function App() {
 				pauseOnHover
 				theme="dark"
 			/>
-		</>
+		</div>
 	);
 }
 

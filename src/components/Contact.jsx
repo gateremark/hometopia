@@ -25,13 +25,13 @@ const Contact = ({ userRef, listing }) => {
 		<>
 			{landlord !== null && (
 				<div className="flex flex-col w-full">
-					<p className=" font-medium ">
+					<p className=" font-medium text-[#e2e2e2]">
 						Contact{" "}
-						<span className="font-bold text-lg text-[#002470] capitalize">
+						<span className="font-bold text-lg text-[#1c9bef] capitalize">
 							{landlord.name}
 						</span>{" "}
 						for the{" "}
-						<span className=" font-bold text-lg text-[#002470] capitalize">
+						<span className=" font-bold text-lg text-[#1c9bef] capitalize">
 							{listing.name}
 						</span>{" "}
 						property.

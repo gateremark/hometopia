@@ -29,7 +29,7 @@ const Navbar = () => {
 		});
 	}, [auth]);
 	return (
-		<div className="bg-navcolor shadow-md sticky top-0 z-40">
+		<div className="bg-[#0D1117] shadow-md sticky top-0 z-40">
 			<header className="flex justify-between items-center px-3 max-w-6xl mx-auto">
 				<div>
 					<img
@@ -43,9 +43,9 @@ const Navbar = () => {
 				<div>
 					<ul className="flex space-x-10">
 						<li
-							className={`cursor-pointc py-3 text-lg font-semibold hover:text-[#024d66] ${
+							className={`cursor-pointc py-3 text-lg font-semibold hover:text-[#9c9c9c] ${
 								pathRoute("/")
-									? "border-b-[3px] border-[#024] text-[#024]"
+									? "border-b-[3px] border-[#fff] text-[#fff]"
 									: "text-[#18C7FA]"
 							} `}
 							onClick={() => navigate("/")}
@@ -53,9 +53,9 @@ const Navbar = () => {
 							Home
 						</li>
 						<li
-							className={`cursor-pointc py-3 text-lg font-semibold hover:text-[#024d66] ${
+							className={`cursor-pointc py-3 text-lg font-semibold hover:text-[#9c9c9c] ${
 								pathRoute("/offers")
-									? "border-b-[3px] border-[#024] text-[#024]"
+									? "border-b-[3px] border-[#fff] text-[#fff]"
 									: "text-[#18C7FA]"
 							} `}
 							onClick={() => navigate("/offers")}
@@ -63,9 +63,9 @@ const Navbar = () => {
 							Offers
 						</li>
 						<li
-							className={`cursor-pointc py-3 text-lg text-center font-semibold hover:text-[#024d66] ${
+							className={`cursor-pointc py-3 text-lg text-center font-semibold hover:text-[#9c9c9c] ${
 								pathRoute("/sign-in") || pathRoute("/profile")
-									? "border-b-[3px] border-[#024] text-[#024]"
+									? "border-b-[3px] border-[#fff] text-[#fff]"
 									: "text-[#18C7FA]"
 							} `}
 							onClick={() => navigate("/profile")}
@@ -74,9 +74,9 @@ const Navbar = () => {
 						</li>
 						{pageState !== "Profile" && (
 							<li
-								className={`cursor-pointc py-3 text-lg text-center font-semibold hover:text-[#024d66] ${
+								className={`cursor-pointc py-3 text-lg text-center font-semibold hover:text-[#9c9c9c] ${
 									pathRoute("/sign-up")
-										? "border-b-[3px] border-[#024] text-[#024]"
+										? "border-b-[3px] border-[#fff] text-[#fff]"
 										: "text-[#18C7FA]"
 								} `}
 								onClick={() => navigate("/sign-up")}
@@ -87,7 +87,7 @@ const Navbar = () => {
 						<li className="py-4">
 							<a
 								href="https://github.com/gateremark/hometopia"
-								className="cursor-pointc text-xl font-semibold text-[#024] items-center hover:text-[#18C7FA] transition duration-500 ease-in-out focus:outline-none focus:ring-offset-2"
+								className="cursor-pointc text-xl font-semibold text-[#18C7FA] items-center hover:text-[#ffffff] transition duration-500 ease-in-out focus:outline-none focus:ring-offset-2"
 								target="_blank"
 							>
 								<FaGithub />

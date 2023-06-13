@@ -18,6 +18,7 @@ import Footer from "../components/Footer";
 const Home = () => {
 	// Fetching data for offers
 	const [offerListings, setOfferListings] = useState(null);
+	const [showFooter, setShowFooter] = useState(false)
 
 	useEffect(() => {
 		const fetchListings = async () => {
@@ -41,6 +42,7 @@ const Home = () => {
 					});
 				});
 				setOfferListings(listings);
+
 				// console.log(listings);
 			} catch (error) {
 				console.log(error);
@@ -114,16 +116,16 @@ const Home = () => {
 	return (
 		<div>
 			<HomeSlider />
-			<div className="max-w-6xl mx-auto pt-4 mt-6 mb-32">
+			<div className="max-w-6xl mx-auto pt-4 mt-6 mb-40">
 				{offerListings && offerListings.length > 0 && (
 					<div className="mb-6">
 						<div className="mx-4 mb-6 flex justify-between items-center">
-							<h2 className="px-3 text-2xl font-semibold text-[#10192D]">
+							<h2 className="px-3 text-2xl font-semibold text-[#ffffff]">
 								On Offer 🎉
 							</h2>
 							<Link
 								to="/offers"
-								className="flex items-center gap-1 text-[#004792] hover:text-[#001f41] transition duration-150 ease-in-out"
+								className="flex items-center gap-1 text-[#004792] hover:text-[#3e79b8] transition duration-150 ease-in-out"
 							>
 								<CiLocationArrow1 className="text-2xl" />
 								<p className=" text-lg">More Offers</p>
@@ -145,12 +147,12 @@ const Home = () => {
 				{rentListings && rentListings.length > 0 && (
 					<div className="mb-6">
 						<div className="mx-4 mb-6 flex justify-between items-center">
-							<h2 className="px-3 text-2xl font-semibold text-[#10192D]">
+							<h2 className="px-3 text-2xl font-semibold text-[#ffffff]">
 								Rentals
 							</h2>
 							<Link
 								to="/category/rent"
-								className="flex items-center gap-1 text-[#004792] hover:text-[#001f41] transition duration-150 ease-in-out"
+								className="flex items-center gap-1 text-[#004792] hover:text-[#3e79b8] transition duration-150 ease-in-out"
 							>
 								<CiLocationArrow1 className="text-2xl" />
 								<p className=" text-lg">More Rentals</p>
@@ -172,12 +174,12 @@ const Home = () => {
 				{saleListings && saleListings.length > 0 && (
 					<div className="">
 						<div className="mx-4 mb-6 flex justify-between items-center">
-							<h2 className="px-3 text-2xl font-semibold text-[#10192D]">
+							<h2 className="px-3 text-2xl font-semibold text-[#ffffff]">
 								On Sale
 							</h2>
 							<Link
 								to="/category/sale"
-								className="flex items-center gap-1 text-[#004792] hover:text-[#001f41] transition duration-150 ease-in-out"
+								className="flex items-center gap-1 text-[#004792] hover:text-[#3e79b8] transition duration-150 ease-in-out"
 							>
 								<CiLocationArrow1 className="text-2xl" />
 								<p className=" text-lg">More On Sale</p>
