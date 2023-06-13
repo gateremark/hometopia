@@ -4,8 +4,8 @@ Welcome to HomeTopia, a powerful web platform for buying, selling, and renting p
 <div align="center">
 <a href="https://hometopia.vercel.app/">
    
-![HomeTopia](https://gateremark.vercel.app/img/projects/projects_post_8.png)
-
+<!-- ![HomeTopia](https://gateremark.vercel.app/img/projects/projects_post_8.png) -->
+![HomeTopia](https://lh3.googleusercontent.com/u/2/drive-viewer/AFGJ81p1Aqxj7OQR0TL4qWLUlRvxkm1VOU5BVPAtMrOJ_83cxqH7dqRwktcj4MsZUJbwYXXRA01ITrPDXxDeOHMNpKfo67KSFg=w1366-h663)
 </a>
 </div>
 
