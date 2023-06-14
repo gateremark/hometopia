@@ -69,7 +69,7 @@ To get started with HomeTopia locally, follow these steps:
    pnpm run dev
    ```
 
-6. Open your browser and visit specified local host port to view the app eg. `http://localhost:5173`.
+6. Open your browser and visit specified local host port to view the app eg. `http://localhost:5173`
 
 
 ## Deployment
