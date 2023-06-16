@@ -4,9 +4,11 @@ import { useNavigate } from "react-router-dom";
 import { FaGithub } from "react-icons/fa";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
+import { FiSun, FiMoon } from "react-icons/fi";
 
 const Navbar = () => {
 	const [pageState, setPageState] = useState("Sign In");
+	const [darkMode, setdarkMode] = useState(false);
 	const { pathname } = useLocation();
 	// console.log(pathname)
 	const pathRoute = (route) => {
@@ -95,6 +97,17 @@ const Navbar = () => {
 						</li>
 					</ul>
 				</div>
+				{darkMode ? (
+					<FiSun
+						className=" text-[#fff] absolute right-3 top-3 text-xl cursor-pointc"
+						onClick={() => setdarkMode((prevState) => !prevState)}
+					/>
+				) : (
+					<FiMoon
+						className=" text-[#fff] absolute right-3 top-3 text-xl cursor-pointc"
+						onClick={() => setdarkMode((prevState) => !prevState)}
+					/>
+				)}
 			</header>
 
 			{/* Mobile View */}

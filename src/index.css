@@ -49,23 +49,23 @@ body {
 
 #wave1 {
   animation: animateWaves 4s linear infinite;
-  background: url("assets/logo/wave3.png");
+  /* background: url("assets/logo/wave3.png"); */
   background-size: 1000px 100px;
 }
 
 #wave2 {
   animation: animate 4s linear infinite !important;
-  background: url("assets/logo/wave3.png");
+  /* background: url("assets/logo/wave3.png"); */
   background-size: 1000px 100px;
 }
 #wave3 {
   animation: animateWaves 3s linear infinite;
-  background: url("assets/logo/wave3.png");
+  /* background: url("assets/logo/wave3.png"); */
   background-size: 1000px 100px;
 }
 #wave4 {
   animation: animate 3s linear infinite;
-  background: url("assets/logo/wave3.png");
+  /* background: url("assets/logo/wave3.png"); */
   background-size: 1000px 100px;
 }
 
