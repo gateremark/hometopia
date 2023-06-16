@@ -5,6 +5,7 @@ import { FaGithub } from "react-icons/fa";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { FiSun, FiMoon } from "react-icons/fi";
+import "../index.css";
 
 const Navbar = () => {
 	const [pageState, setPageState] = useState("Sign In");
@@ -32,7 +33,7 @@ const Navbar = () => {
 	}, [auth]);
 	return (
 		<div className="bg-[#0D1117] shadow-md sticky top-0 z-40">
-			<header className="flex justify-between items-center px-3 max-w-6xl mx-auto">
+			<header className=" flex justify-between items-center px-3 max-w-6xl mx-auto">
 				<div>
 					<img
 						src={Logo}
@@ -97,19 +98,19 @@ const Navbar = () => {
 						</li>
 					</ul>
 				</div>
-				{darkMode ? (
-					<FiSun
-						className=" text-[#fff] absolute right-3 top-3 text-xl cursor-pointc"
-						onClick={() => setdarkMode((prevState) => !prevState)}
-					/>
-				) : (
-					<FiMoon
-						className=" text-[#fff] absolute right-3 top-3 text-xl cursor-pointc"
-						onClick={() => setdarkMode((prevState) => !prevState)}
-					/>
-				)}
 			</header>
 
+			{darkMode ? (
+				<FiSun
+					className=" text-[#e2e2e2] absolute right-6 top-3 p-1 text-3xl shadow-glowdm cursor-pointc"
+					onClick={() => setdarkMode((prevState) => !prevState)}
+				/>
+			) : (
+				<FiMoon
+					className=" text-[#e2e2e2] absolute right-6 top-3 p-1 text-3xl shadow-glowdm cursor-pointc"
+					onClick={() => setdarkMode((prevState) => !prevState)}
+				/>
+			)}
 			{/* Mobile View */}
 		</div>
 	);
