@@ -25,24 +25,24 @@ const Footer = () => {
 	}, [auth]);
 	return (
 		<div
-			className="relative w-[100%] h-[150px] px-5 py-12 flex justify-center items-center flex-col bg-[#18C7FA] shadow-lg shadow-[#18C7FA]"
+			className="relative w-[100%] h-[150px] px-5 py-12 flex justify-center items-center flex-col bg-[#122035] shadow-lg shadow-[#122035]"
 			id="waves"
 		>
 			<div className="">
 				<div
-					className="absolute top-[-100px] left-0 w-[100%] h-[100px]  z-1000 opacity-100 bottom-0"
+					className="bg-[url('./assets/logo/wave3.png')] absolute top-[-100px] left-0 w-[100%] h-[100px]  z-1000 opacity-100 bottom-0"
 					id="wave1"
 				></div>
 				<div
-					className="absolute top-[-100px] left-0 w-[100%] h-[100px] z-999 opacity-50 bottom-[10px]"
+					className="bg-[url('./assets/logo/wave3.png')] absolute top-[-100px] left-0 w-[100%] h-[100px] z-999 opacity-50 bottom-[10px]"
 					id="wave2"
 				></div>
 				<div
-					className="absolute top-[-100px] left-0 w-[100%] h-[100px] z-1000 opacity-20 bottom-[15px]"
+					className="bg-[url('./assets/logo/wave3.png')] absolute top-[-100px] left-0 w-[100%] h-[100px] z-1000 opacity-20 bottom-[15px]"
 					id="wave3"
 				></div>
 				<div
-					className="absolute top-[-100px] left-0 w-[100%] h-[100px] z-999 opacity-70 bottom-[20px]"
+					className="bg-[url('./assets/logo/wave3.png')] absolute top-[-100px] left-0 w-[100%] h-[100px] z-999 opacity-70 bottom-[20px]"
 					id="wave4"
 				></div>
 			</div>
@@ -83,26 +83,26 @@ const Footer = () => {
 			</div>
 			<ul className="relative text-[#e2e2e2] gap-5 text-lg flex justify-center items-center mt-4 mx-0 flex-wrap">
 				<li
-					className="hover:text-[#001f41] transition duration-300 ease-in-out cursor-pointc"
+					className="hover:text-[#1c9bef] transition duration-300 ease-in-out cursor-pointc"
 					onClick={() => navigate("/")}
 				>
 					Home
 				</li>
 				<li
-					className="hover:text-[#001f41] transition duration-300 ease-in-out cursor-pointc"
+					className="hover:text-[#1c9bef] transition duration-300 ease-in-out cursor-pointc"
 					onClick={() => navigate("/offers")}
 				>
 					Offers
 				</li>
 				<li
-					className="hover:text-[#001f41] transition duration-300 ease-in-out cursor-pointc"
+					className="hover:text-[#1c9bef] transition duration-300 ease-in-out cursor-pointc"
 					onClick={() => navigate("/profile")}
 				>
 					{pageState}
 				</li>
 				{pageState !== "Profile" && (
 					<li
-						className="hover:text-[#001f41] transition duration-300 ease-in-out cursor-pointc"
+						className="hover:text-[#1c9bef] transition duration-300 ease-in-out cursor-pointc"
 						onClick={() => navigate("/sign-up")}
 					>
 						Sign Up
@@ -112,7 +112,7 @@ const Footer = () => {
 			<Greetings />
 			<p className="mt-4 mb-10 text-base text-[#ffffff] text-center">
 				&copy; 2023 HomeTopia | All Rights Reserved | by{" "}
-				<span className="hover:text-[#001f41] transition duration-300 ease-in-out">
+				<span className="hover:text-[#1c9bef] transition duration-300 ease-in-out">
 					{" "}
 					<a href="https://gateremark.vercel.app/" target="_blank">
 						@gateremark

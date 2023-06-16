@@ -79,7 +79,7 @@ const Offers = () => {
 	return (
 		<div>
 			<div className="max-w-6xl mx-auto pt-4 mb-32">
-				<h1 className="px-3 text-3xl mb-6 font-semibold text-[#10192D] text-center">
+				<h1 className="px-3 text-3xl mb-6 font-semibold text-[#ffffff] text-center">
 					Offers 🎉
 				</h1>
 				{loading ? (

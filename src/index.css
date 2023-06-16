@@ -18,6 +18,16 @@ a {
 	cursor: url(assets/logo/pointer.png), pointer;
 }
 
+/* .darkmd {
+	transition: box-shadow ease-in-out 500ms;
+} */
+
+/* .darkmd {
+	box-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #18c7fa, 0 0 4px #18c7fa,
+		0 0 5px #18c7fa, 0 0 6px #18c7fa, 0 0 7px #18c7fa;
+} */
+
+
 /* p {
 	cursor: url(assets/logo/type.png), text;
 } */
@@ -34,55 +44,55 @@ body {
 		#a8c6de 100%
 	);  */
 
-  background-color: #F4F4F4;
-  
-  /* For Safari/Chrome */
+	/* background-color: #F4F4F4; */
+
+	/* For Safari/Chrome */
 	/* background: linear-gradient(180deg, #6384a8 0%, #a8c6de 100%);
 	background-repeat: no-repeat;
 	background-attachment: fixed; */
 }
 
 .swiper-button-next,
-.swiper-button-prev{
+.swiper-button-prev {
 	cursor: url(assets/logo/pointer.png), pointer;
 }
 
 #wave1 {
-  animation: animateWaves 4s linear infinite;
-  background: url("assets/logo/wave2.png");
-  background-size: 1000px 100px;
+	animation: animateWaves 4s linear infinite;
+	/* background: url("assets/logo/wave3.png"); */
+	background-size: 1000px 100px;
 }
 
 #wave2 {
-  animation: animate 4s linear infinite !important;
-  background: url("assets/logo/wave2.png");
-  background-size: 1000px 100px;
+	animation: animate 4s linear infinite !important;
+	/* background: url("assets/logo/wave3.png"); */
+	background-size: 1000px 100px;
 }
 #wave3 {
-  animation: animateWaves 3s linear infinite;
-  background: url("assets/logo/wave2.png");
-  background-size: 1000px 100px;
+	animation: animateWaves 3s linear infinite;
+	/* background: url("assets/logo/wave3.png"); */
+	background-size: 1000px 100px;
 }
 #wave4 {
-  animation: animate 3s linear infinite;
-  background: url("assets/logo/wave2.png");
-  background-size: 1000px 100px;
+	animation: animate 3s linear infinite;
+	/* background: url("assets/logo/wave3.png"); */
+	background-size: 1000px 100px;
 }
 
 @keyframes animateWaves {
-  0% {
-    background-position-x: 1000px;
-  }
-  100% {
-    background-positon-x: 0px;
-  }
+	0% {
+		background-position-x: 1000px;
+	}
+	100% {
+		background-positon-x: 0px;
+	}
 }
 
 @keyframes animate {
-  0% {
-    background-position-x: -1000px;
-  }
-  100% {
-    background-positon-x: 0px;
-  }
+	0% {
+		background-position-x: -1000px;
+	}
+	100% {
+		background-positon-x: 0px;
+	}
 }
