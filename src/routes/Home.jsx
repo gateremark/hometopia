@@ -18,6 +18,7 @@ import Footer from "../components/Footer";
 const Home = () => {
 	// Fetching data for offers
 	const [offerListings, setOfferListings] = useState(null);
+	const [darkMode, setdarkMode] = useState(false);
 
 	useEffect(() => {
 		const fetchListings = async () => {

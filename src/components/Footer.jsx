@@ -30,19 +30,19 @@ const Footer = () => {
 		>
 			<div className="">
 				<div
-					className="absolute top-[-100px] left-0 w-[100%] h-[100px]  z-1000 opacity-100 bottom-0"
+					className="bg-[url('./assets/logo/wave2.png')] absolute top-[-100px] left-0 w-[100%] h-[100px]  z-1000 opacity-100 bottom-0"
 					id="wave1"
 				></div>
 				<div
-					className="absolute top-[-100px] left-0 w-[100%] h-[100px] z-999 opacity-50 bottom-[10px]"
+					className="bg-[url('./assets/logo/wave2.png')] absolute top-[-100px] left-0 w-[100%] h-[100px] z-999 opacity-50 bottom-[10px]"
 					id="wave2"
 				></div>
 				<div
-					className="absolute top-[-100px] left-0 w-[100%] h-[100px] z-1000 opacity-20 bottom-[15px]"
+					className="bg-[url('./assets/logo/wave2.png')] absolute top-[-100px] left-0 w-[100%] h-[100px] z-1000 opacity-20 bottom-[15px]"
 					id="wave3"
 				></div>
 				<div
-					className="absolute top-[-100px] left-0 w-[100%] h-[100px] z-999 opacity-70 bottom-[20px]"
+					className="bg-[url('./assets/logo/wave2.png')] absolute top-[-100px] left-0 w-[100%] h-[100px] z-999 opacity-70 bottom-[20px]"
 					id="wave4"
 				></div>
 			</div>
