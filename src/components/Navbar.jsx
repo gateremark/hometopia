@@ -149,6 +149,7 @@ const Navbar = () => {
 										: "text-[#18C7FA] hover:text-[#ffffff]"
 								}`}
 								target="_blank"
+								rel="noreferrer"
 							>
 								<FaGithub />
 							</a>
